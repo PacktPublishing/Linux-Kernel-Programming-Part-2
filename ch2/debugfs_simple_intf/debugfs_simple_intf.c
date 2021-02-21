@@ -1,16 +1,17 @@
 /*
- * user_kernel_comm/debugfs_simple_intf/debugfs_simple_intf.c
+ * ch2/debugfs_simple_intf/debugfs_simple_intf.c
  **************************************************************************
  * This program is part of the source code released for the book
- *  "Learn Linux Kernel Development"
+ *  "Linux Kernel Programming (Part 2)"
  *  (c) Author: Kaiwan N Billimoria
  *  Publisher:  Packt
  *  GitHub repository:
- *  https://github.com/PacktPublishing/Learn-Linux-Kernel-Development
+ *  https://github.com/PacktPublishing/Linux-Kernel-Programming-Part-2
  *
- * From: Ch - User-Kernel communication pathways
+ * From: Ch 2 - User-Kernel communication pathways
  **************************************************************************
  * Brief Description:
+ * Demo to show simple usage of the debugfs APIs for user-kernel interfacing.
  *
  * For details, please refer the book.
  */
@@ -33,9 +34,9 @@
 
 #define OURMODNAME      "dbgfs_simple_intf"
 
-MODULE_AUTHOR("<insert name here>");
+MODULE_AUTHOR("Kaiwan N Billimoria");
 MODULE_DESCRIPTION(
-"LLKD book:ch13/dbgfs_simple_intf: simple demo for U<->K interfacing via debugfs");
+"LKP-2 book:ch2/dbgfs_simple_intf: simple demo for U<->K interfacing via debugfs");
 MODULE_LICENSE("Dual MIT/GPL");
 MODULE_VERSION("0.1");
 

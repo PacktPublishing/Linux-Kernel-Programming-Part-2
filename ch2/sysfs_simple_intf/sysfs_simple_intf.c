@@ -1,14 +1,14 @@
 /*
- * user_kernel_comm/sysfs_simple_intf/sysfs_simple_intf.c
+ * ch2/sysfs_simple_intf/sysfs_simple_intf.c
  ***************************************************************
  * This program is part of the source code released for the book
- *  "Learn Linux Kernel Development"
+ *  "Linux Kernel Programming - Part 2"
  *  (c) Author: Kaiwan N Billimoria
  *  Publisher:  Packt
  *  GitHub repository:
- *  https://github.com/PacktPublishing/Learn-Linux-Kernel-Development
+ *  https://github.com/PacktPublishing/Linux-Kernel-Programming-Part-2
  *
- * From: Ch - User-Kernel communication pathways
+ * From: Ch 2 - User-Kernel communication pathways
  ****************************************************************
  * Brief Description:
  *
@@ -64,7 +64,7 @@
 #endif
 
 MODULE_AUTHOR("Kaiwan N Billimoria");
-MODULE_DESCRIPTION("LLKD book:user_kernel_comm/sysfs_simple_intf: simple sysfs interfacing demo");
+MODULE_DESCRIPTION("LKP-2 book:ch2/sysfs_simple_intf: simple sysfs interfacing demo");
 /*
  * We *require* the module to be released under GPL license (as well) to please
  * several core driver routines (like sysfs_create_group,
@@ -79,7 +79,7 @@ MODULE_VERSION("0.1");
 #define SYSFS_FILE2		llkdsysfs_pgoff
 #define SYSFS_FILE3		llkdsysfs_pressure
 
-/* We use a mutex lock; details in Ch 15 and Ch 16 */
+/* We use a mutex lock; details in Ch 6 and Ch 7 */
 static DEFINE_MUTEX(mtx);
 
 static int debug_level;		/* 'off' (0) by default ... */

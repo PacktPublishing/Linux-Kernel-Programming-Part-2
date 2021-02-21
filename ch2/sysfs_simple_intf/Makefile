@@ -1,13 +1,11 @@
-# ch5/lkm_template/Makefile
+# ch2/sysfs_simple_intf/Makefile
 # ***************************************************************
 # This program is part of the source code released for the book
-#  "Learn Linux Kernel Development"
+#  "Linux Kernel Programming (Part 2)"
 #  (c) Author: Kaiwan N Billimoria
 #  Publisher:  Packt
 #  GitHub repository:
-#  https://github.com/PacktPublishing/Learn-Linux-Kernel-Development
-#
-# From: Ch 5 : Writing Your First Kernel Module LKMs, Part 2
+#  https://github.com/PacktPublishing/Linux-Kernel-Programming-Part-2
 # ***************************************************************
 # Brief Description:
 # A 'better' Makefile template for Linux LKMs (Loadable Kernel Modules); besides
@@ -22,7 +20,7 @@
 # To get started, just type:
 #  make help
 #
-# For details, please refer the book, Ch 5.
+# For details, please refer the Linux Kernel Programming book, Ch 5.
 
 # To support cross-compiling for kernel modules:
 # For architecture (cpu) 'arch', invoke make as:

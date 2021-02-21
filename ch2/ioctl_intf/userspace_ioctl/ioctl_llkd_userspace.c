@@ -1,18 +1,20 @@
 /*
- * user_kernel_comm/ioctl_intf/userspace_ioctl/ioctl_llkd_userspace.c
+ * ch2/ioctl_intf/userspace_ioctl/ioctl_llkd_userspace.c
  **************************************************************************
  * This program is part of the source code released for the book
- *  "Learn Linux Kernel Development"
+ *  "Linux Kernel Programming (Part 2)"
  *  (c) Author: Kaiwan N Billimoria
  *  Publisher:  Packt
  *  GitHub repository:
- *  https://github.com/PacktPublishing/Learn-Linux-Kernel-Development
+ *  https://github.com/PacktPublishing/Linux-Kernel-Programming-Part-2
  *
- * From: Chapter - User-Kernel communication pathways
+ * From: Chapter 2 - User-Kernel communication pathways
  **************************************************************************
  * Brief Description:
  * User space app to test interfacing between user and kernel address spaces
  * via the ioctl.
+ *
+ * For details, refer to the book.
  */
 #include <stdio.h>
 #include <unistd.h>

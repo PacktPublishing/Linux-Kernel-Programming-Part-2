@@ -1,24 +1,24 @@
 /*
- * user_kernel_comm/ioctl_intf/kerneldrv_ioctl.c
+ * ch2/ioctl_intf/kerneldrv_ioctl/ioctl_llkd_kdrv.c
  **************************************************************************
  * This program is part of the source code released for the book
- *  "Learn Linux Kernel Development"
+ *  "Linux Kernel Programming (Part 2)"
  *  (c) Author: Kaiwan N Billimoria
  *  Publisher:  Packt
  *  GitHub repository:
- *  https://github.com/PacktPublishing/Learn-Linux-Kernel-Development
+ *  https://github.com/PacktPublishing/Linux-Kernel-Programming-Part-2
  *
- * From: Ch : User-Kernel communication pathways
+ * From: Ch 2 - User-Kernel communication pathways
  **************************************************************************
  * Brief Description:
- *
- * For details, please refer the book.
  *
  * A kernel module that demonstrates simple usage of the ioctl driver method
  * to interface with a userspace 'C' application (the ioctl_user_test.c).
  * Architected as a simple device driver for a fictional 'device'; we use
- * the ioctl(2) system call to interface with the device from/to a usermode
+ * the ioctl(2) system call to interface with the device from/to a user mode
  * 'C' application.
+ *
+ * For details, please refer the book.
  */
 #define pr_fmt(fmt) "%s:%s(): " fmt, KBUILD_MODNAME, __func__
 

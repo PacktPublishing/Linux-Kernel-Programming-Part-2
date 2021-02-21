@@ -1,14 +1,14 @@
 /*
- * user_kernel_comm/procfs_simple_intf/procfs_simple_intf.c
+ * ch2/procfs_simple_intf/procfs_simple_intf.c
  ***************************************************************
  * This program is part of the source code released for the book
- *  "Learn Linux Kernel Development"
+ *  "Linux Kernel Programming - Part 2"
  *  (c) Author: Kaiwan N Billimoria
  *  Publisher:  Packt
  *  GitHub repository:
- *  https://github.com/PacktPublishing/Learn-Linux-Kernel-Development
+ *  https://github.com/PacktPublishing/Linux-Kernel-Programming-Part-2
  *
- * From: Ch - User-Kernel communication pathways
+ * From: Ch 2 - User-Kernel communication pathways
  ****************************************************************
  * Brief Description:
  * Simple kernel module to demo interfacing with userspace via procfs.
@@ -73,7 +73,7 @@
 #endif
 
 MODULE_AUTHOR("Kaiwan N Billimoria");
-MODULE_DESCRIPTION("LLKD book:user_kernel_comm/procfs_simple_intf: simple procfs interfacing demo");
+MODULE_DESCRIPTION("LKP-2 book:user_kernel_comm/procfs_simple_intf: simple procfs interfacing demo");
 MODULE_LICENSE("Dual MIT/GPL");
 MODULE_VERSION("0.1");
 
@@ -87,10 +87,10 @@ MODULE_VERSION("0.1");
 #define	PROC_FILE4		"llkdproc_config1"
 #define	PROC_FILE4_PERMS	0644
 
-/* We use a mutex lock here; details in Ch 16 and Ch 17 */
+/* We use a mutex lock here; details in Ch 6 and Ch 7 */
 DEFINE_MUTEX(mtx);
 
-/* Borrowed from ch12; the 'driver context' data structure:
+/* Borrowed from ch1; the 'driver context' data structure:
  * all relevant 'state info' reg the driver and (fictional) 'device'
  * is maintained here.
  */

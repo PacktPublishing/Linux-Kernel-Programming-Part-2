@@ -45,7 +45,7 @@ else
 endif
 
 # Set FNAME_C to the kernel module name source filename (without .c)
-FNAME_C := debugfs_simple_intf
+FNAME_C := debugfs_simple_intf2
 
 PWD            := $(shell pwd)
 obj-m          += ${FNAME_C}.o

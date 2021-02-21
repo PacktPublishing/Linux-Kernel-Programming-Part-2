@@ -1,9 +1,20 @@
 /*
- * netlink_userapp.c
+ * ch2/netlink_simple_intf/userapp_netlink/netlink_userapp.c
+ **************************************************************************
+ * This program is part of the source code released for the book
+ *  "Linux Kernel Programming (Part 2)"
+ *  (c) Author: Kaiwan N Billimoria
+ *  Publisher:  Packt
+ *  GitHub repository:
+ *  https://github.com/PacktPublishing/Linux-Kernel-Programming-Part-2
  *
- ***********************************************************
- * Brief Description
+ * From: Ch 2 - User-Kernel communication pathways
+ **************************************************************************
+ * Brief Description:
+ * Demo to show simple usage of netlink sockets for user-kernel interfacing.
+ * This is the user space component.
  *
+ * For details, please refer the book.
  */
 #include <stdio.h>
 #include <stdlib.h>
