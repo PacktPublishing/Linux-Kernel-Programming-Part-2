@@ -1,14 +1,14 @@
 /*
- * solutions_to_assgn/ch12/misc_plat.c
+ * solutions_to_assgn/ch1/misc_plat.c
  ***************************************************************
  * This program is part of the source code released for the book
- *  "Learn Linux Kernel Development"
+ *  "Linux Kernel Programming (Part 2)"
  *  (c) Author: Kaiwan N Billimoria
  *  Publisher:  Packt
  *  GitHub repository:
- *  https://github.com/PacktPublishing/Learn-Linux-Kernel-Development
+ *  https://github.com/PacktPublishing/Linux-Kernel-Programming-Part-2
  *
- * From: Ch 12 : Writing a simple misc character device driver
+ * From: Ch 1 : Writing a simple misc character device driver
  ****************************************************************
  * Brief Description:
  * For convenience, we repeat the 'Question' here:

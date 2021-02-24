@@ -1,4 +1,3 @@
-# ch5/lkm_template/Makefile
 # ***************************************************************
 # This program is part of the source code released for the book
 #  "Learn Linux Kernel Development"

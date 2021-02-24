@@ -1,13 +1,12 @@
-# solutions_to_assgn/ch15/timer_simple_check/Makefile
+# solutions_to_assgn/ch5/timer_simple_check/Makefile
 # ***************************************************************
 # This program is part of the source code released for the book
-#  "Learn Linux Kernel Development"
+#  "Linux Kernel Programming (Part 2)"
 #  (c) Author: Kaiwan N Billimoria
 #  Publisher:  Packt
 #  GitHub repository:
-#  https://github.com/PacktPublishing/Learn-Linux-Kernel-Development
+#  https://github.com/PacktPublishing/Linux-Kernel-Programming-Part-2
 #
-# From: Ch 5 : Writing Your First Kernel Module LKMs, Part 2
 # ***************************************************************
 # Brief Description:
 # A 'better' Makefile template for Linux LKMs (Loadable Kernel Modules); besides

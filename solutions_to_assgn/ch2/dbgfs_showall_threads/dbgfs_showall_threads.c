@@ -1,16 +1,16 @@
 /*
- * solutions_to_assgn/ch12/dbgfs_showall_threads/dbgfs_showall_threads.c
+ * solutions_to_assgn/ch2/dbgfs_showall_threads/dbgfs_showall_threads.c
  **************************************************************************
  * This program is part of the source code released for the book
- *  "Learn Linux Kernel Development"
+ *  "Linux Kernel Programming (Part 2)"
  *  (c) Author: Kaiwan N Billimoria
  *  Publisher:  Packt
  *  GitHub repository:
- *  https://github.com/PacktPublishing/Learn-Linux-Kernel-Development
+ *  https://github.com/PacktPublishing/Linux-Kernel-Programming-Part-2
  *
- * From: Ch 12 : User-Kernel communication pathways
+ * From: Ch 2 : User-Kernel communication pathways
  **************************************************************************
- * Solution to Assignment, ch12, debugfs assigment #2:
+ * Solution to Assignment, ch2, debugfs assigment #2:
  *
  * Write a kernel module that sets up a debugfs file here:
  *  <debugfs_mount_point>/dbgfs_showall_threads/dbgfs_showall_threads
@@ -25,7 +25,7 @@
  *    single-threaded process; f.e.:
  *  130,130,0xffff9f8b3cd38000,0xffffc13280420000,[watchdogd])
  *
- * For details, please refer the book, Ch 12.
+ * For details, please refer the book, Ch 2.
  */
 #include <linux/init.h>
 #include <linux/module.h>

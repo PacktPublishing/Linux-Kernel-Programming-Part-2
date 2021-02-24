@@ -1,14 +1,14 @@
 /*
- * solutions_to_assgn/ch15/workq_simple2/workq_simple2.c
+ * solutions_to_assgn/ch5/workq_simple2/workq_simple2.c
  ***************************************************************
  * This program is part of the source code released for the book
- *  "Learn Linux Kernel Development"
+ *  "Linux Kernel Programming"
  *  (c) Author: Kaiwan N Billimoria
  *  Publisher:  Packt
  *  GitHub repository:
- *  https://github.com/PacktPublishing/Learn-Linux-Kernel-Development
+ *  https://github.com/PacktPublishing/Linux-Kernel-Programming-Part-2
  *
- * From: Ch 15 : Timers, kernel threads and more
+ * From: Ch 5 : Timers, kernel threads and more
  ****************************************************************
  * Exercise question:
  *
@@ -18,7 +18,7 @@
  * be delayed; the amount of time to delay by should be passed as a module
  * parameter named work_delay_ms (in milliseconds; default should be 500 ms).
  *
- * For details, please refer the book, Ch 15.
+ * For details, please refer the book, Ch 5.
  */
 #define pr_fmt(fmt) "%s:%s(): " fmt, KBUILD_MODNAME, __func__
 
@@ -33,7 +33,7 @@
 #define INITIAL_VALUE	3
 
 MODULE_AUTHOR("Kaiwan N Billimoria");
-MODULE_DESCRIPTION("solution: ch15:a LKM to demo a workqueue with 2 functions");
+MODULE_DESCRIPTION("solution: ch5:a LKM to demo a workqueue with 2 functions");
 MODULE_LICENSE("Dual MIT/GPL");	// or whatever
 MODULE_VERSION("0.1");
 

@@ -1,23 +1,23 @@
 /*
- * solutions_to_assgn/ch17/miscdrv_rdwr_refcount/miscdrv_rdwr_refcount.c
+ * solutions_to_assgn/ch7/miscdrv_rdwr_refcount/miscdrv_rdwr_refcount.c
  ***************************************************************
  * This program is part of the source code released for the book
- *  "Linux Kernel Development Cookbook"
+ *  "Linux Kernel Programming"
  *  (c) Author: Kaiwan N Billimoria
  *  Publisher:  Packt
  *  GitHub repository:
- *  https://github.com/PacktPublishing/Linux-Kernel-Development-Cookbook
+ *  https://github.com/PacktPublishing/Linux-Kernel-Programming-Part-2
  *
- * From: Ch 17 : Kernel Synchronization - Part 2
+ * From: Ch 7 : Kernel Synchronization - Part 2
  ****************************************************************
  * Question:
- *  Convert our earlier ch16/2_miscdrv_rdwr_spinlock/miscdrv_rdwr_spinlock.c
+ *  Convert our earlier ch6/2_miscdrv_rdwr_spinlock/miscdrv_rdwr_spinlock.c
  * driver code; it has the integers ga and gb , which, when being read or
  * written were protected via a spinlock. Now make them refcount variables and
  * use the appropriate refcount_t APIs when working on them. (Careful! don't
  * allow their values to go out of the allowed range [0..INT_MAX] !)
  *
- * For details, please refer the book, Ch 17.
+ * For details, please refer the book, Ch 7.
  */
 #define pr_fmt(fmt) "%s:%s(): " fmt, KBUILD_MODNAME, __func__
 
@@ -45,7 +45,7 @@
 
 MODULE_AUTHOR("Kaiwan N Billimoria");
 MODULE_DESCRIPTION(
-"LLKD book:solutions_to_assgn/ch17/miscdrv_rdwr_refcount: simple misc driver rewritten to use refcount_t interfaces");
+"solutions_to_assgn/ch7/miscdrv_rdwr_refcount: simple misc driver rewritten to use refcount_t interfaces");
 MODULE_LICENSE("Dual MIT/GPL");
 MODULE_VERSION("0.1");
 

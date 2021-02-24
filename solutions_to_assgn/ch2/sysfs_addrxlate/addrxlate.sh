@@ -9,8 +9,8 @@
 #  https://github.com/PacktPublishing/Learn-Linux-Kernel-Development
 # **********************************************************************
 # Brief Description:
-# Simple script wrapper over the sysfs_addrxlate LKM.
-# For details, refer to the book Ch 6.
+# Simple script wrapper over the solutions_to_assgn/ch2/sysfs_addrxlate LKM.
+# For details, refer to the book Ch 2 (and to Linux Kernel Programming, Ch 6).
 name=$(basename $0)
 MOD=sysfs_addrxlate
 SYSFS_FILE=/sys/devices/platform/llkd_sysfs_addrxlate/addrxlate_kva2pa

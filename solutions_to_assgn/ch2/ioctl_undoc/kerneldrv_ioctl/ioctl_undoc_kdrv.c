@@ -2,17 +2,17 @@
  * solutions_to_assgn/ch12/ioctl_undoc/kerneldrv_ioctl/ioctl_undoc_kdrv.c
  **************************************************************************
  * This program is part of the source code released for the book
- *  "Learn Linux Kernel Development"
+ *  "Linux Kernel Programming"
  *  (c) Author: Kaiwan N Billimoria
  *  Publisher:  Packt
  *  GitHub repository:
- *  https://github.com/PacktPublishing/Learn-Linux-Kernel-Development
+ *  https://github.com/PacktPublishing/Linux-Kernel-Programming-Part-2
  *
- * From: Ch 12 : User - kernel communication pathways
+ * From: Ch 2 : User - kernel communication pathways
  **************************************************************************
- * Assignment : ch12: ioctl #2: 'ioctl_undoc':
+ * Assignment : ch2: ioctl #2: 'ioctl_undoc':
  *
- * Using the provided ch12/ioctl_intf/ code as a template, write a userspace
+ * Using the provided ch2/ioctl_intf/ code as a template, write a userspace
  * 'C' application and a kernel-space (char) device driver implementing the
  * ioctl method. Add in a 'driver context' data structure (that we use in
  * several examples), allocate and initialize it. Now, in addition to the
@@ -22,7 +22,7 @@
  * data structure to userspace; the userspace 'C' app must print out the
  * content.
  *
- * For details refer the book, Ch 12.
+ * For details refer the book, Ch 2.
  */
 #include <linux/module.h>
 #include <linux/kernel.h>
@@ -45,7 +45,7 @@
 #define OURMODNAME   "ioctl_undoc_kdrv"
 MODULE_AUTHOR("<insert name here>");
 MODULE_DESCRIPTION(
-	"LLKD book:solutions_to_assgn/ch12/ioctl_undoc: a soln to ch12 assignment #1");
+	"LLKD book:solutions_to_assgn/ch2/ioctl_undoc: a soln to ch2 assignment");
 MODULE_LICENSE("Dual MIT/GPL");
 MODULE_VERSION("0.1");
 

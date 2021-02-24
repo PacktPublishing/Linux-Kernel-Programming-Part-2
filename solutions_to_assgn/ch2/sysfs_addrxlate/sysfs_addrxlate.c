@@ -1,14 +1,14 @@
 /*
- * solutions_to_assgn/user_kernel_comm/sysfs_addrxlate/sysfs_addrxlate.c
+ * solutions_to_assgn/ch2/sysfs_addrxlate/sysfs_addrxlate.c
  ***************************************************************
  * This program is part of the source code released for the book
- *  "Learn Linux Kernel Development"
+ *  "Linux Kernel Programming (Part 2)"
  *  (c) Author: Kaiwan N Billimoria
  *  Publisher:  Packt
  *  GitHub repository:
- *  https://github.com/PacktPublishing/Learn-Linux-Kernel-Development
+ *  https://github.com/PacktPublishing/Linux-Kernel-Programming-Part-2
  *
- * From: Ch 13 : User-Kernel communication pathways
+ * From: Ch 2 : User-Kernel communication pathways
  ****************************************************************
  * Brief Description:
  * This is an assignment from the chapter "User-Kernel communication pathways".
@@ -44,7 +44,7 @@
 
 MODULE_AUTHOR("Kaiwan N Billimoria");
 MODULE_DESCRIPTION
-("LLKD book:solutions_to_assgn/user_kernel_comm/sysfs_addrxlate: simple sysfs interfacing to translate linear addr");
+("LLKD book:solutions_to_assgn/ch2/sysfs_addrxlate: simple sysfs interfacing to translate linear addr");
 /*
  * We *require* the module to be released under GPL license (as well) to please
  * several core driver routines (like sysfs_create_group,
@@ -58,7 +58,7 @@ MODULE_VERSION("0.1");
 #define SYSFS_FILE1	addrxlate_kva2pa
 #define SYSFS_FILE2	addrxlate_pa2kva
 
-/* We use a mutex lock; details in Ch 16 and Ch 17 */
+/* We use a mutex lock; details in Ch 6 and Ch 7 */
 static DEFINE_MUTEX(mtx1);
 static DEFINE_MUTEX(mtx2);
 static struct platform_device *sysfs_demo_platdev;	/* Device structure */

@@ -1,7 +1,7 @@
 /* 
  * ioctl_llkd.h
  *
- * Part of : ch12 Assignment #1:
+ * Part of : ch2 Assignment #1:
  *
  * Common header for both the ioctl_kdrv.c kernel module and the userspace
  * C app ioctl_user_test.c

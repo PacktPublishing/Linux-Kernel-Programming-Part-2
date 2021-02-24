@@ -1,14 +1,14 @@
 /*
- * solutions_to_assgn/ch15/timer_simple_check/timer_simple_check.c
+ * solutions_to_assgn/ch5/timer_simple_check/timer_simple_check.c
  ***************************************************************
  * This program is part of the source code released for the book
- *  "Learn Linux Kernel Development"
+ *  "Linux Kernel Programming"
  *  (c) Author: Kaiwan N Billimoria
  *  Publisher:  Packt
  *  GitHub repository:
- *  https://github.com/PacktPublishing/Learn-Linux-Kernel-Development
+ *  https://github.com/PacktPublishing/Linux-Kernel-Programming-Part-2
  *
- * From: Ch 15 : Timers, kernel threads and more
+ * From: Ch 5 : Timers, kernel threads and more
  ****************************************************************
  * Questions:
  * timer_simple_check: enhance the timer_simple kernel module to check the
@@ -28,7 +28,7 @@
 #define INITIAL_VALUE	3
 
 MODULE_AUTHOR("Kaiwan N Billimoria");
-MODULE_DESCRIPTION("sample solution: solutions_to_assgn/ch15/timer_simple_check/");
+MODULE_DESCRIPTION("sample solution: solutions_to_assgn/ch5/timer_simple_check/");
 MODULE_LICENSE("Dual MIT/GPL");	// or whatever
 MODULE_VERSION("0.1");
 

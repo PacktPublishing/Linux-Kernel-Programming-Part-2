@@ -1,5 +1,5 @@
 Solution / Tip for:
-ch12 : Debugfs assignment #1
+ch1 : Debugfs assignment #1
 -----------------------------------------------------------
 Write a kernel module that sets up a debugfs file here:
   <debugfs_mount_point>/dbgfs_disp_pgoff ;
