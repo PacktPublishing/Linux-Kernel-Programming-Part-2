@@ -1,0 +1,14 @@
+------------------------------------------------------------------------------
+Linux Kernel Programming (Part 2)
+ Solutions to selected assignments ::
+ Ch 7: Kernel Synchronization - Part 2
+Answers to a few selected questions only.
+(For your convenience, we have repeated the questions below and have provided
+answers / solutions to some of them).
+------------------------------------------------------------------------------
+
+*NOTE*
+
+Please find the solution(s) here:
+https://github.com/PacktPublishing/Linux-Kernel-Programming/tree/master/solutions_to_assgn/ch13
+

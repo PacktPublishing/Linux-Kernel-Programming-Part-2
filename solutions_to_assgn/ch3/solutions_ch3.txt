@@ -1,0 +1,29 @@
+------------------------------------------------------------------------------
+Linux Kernel Programming (Part 2)
+ Solutions to selected assignments ::
+ Ch 3: Working with hardware IO Memory
+Answers to a few selected questions only.
+(For your convenience, we have repeated the questions below and have provided
+answers / solutions to some of them).
+------------------------------------------------------------------------------
+
+1. Imagine that you have mapped an 8-bit register bank to a peripheral chip (via
+   the devm_ioremap_resource() API in your driver's xxx_probe() method;
+   assume it succeeds). Now, you want to read the current content in the third
+   8-bit register. The following is some (pseudo)code that you can use to do
+   this. Study it and spot the bug inside it:
+
+	char val;
+	void __iomem *base = devm_ioremap_resource(dev, r);
+	[...]
+	val = ioread8(base+3);
+
+    Can you suggest a fix?
+
+A. The bug: the variable 'val' is declared as 'char'; this is implicitly a
+   signed char, implying that the LSB bit is lost! - a dangerous bug.
+   A simple solution is to delcare it as 'unsigned char'; even better, like
+   this:
+
+   u8 val;
+

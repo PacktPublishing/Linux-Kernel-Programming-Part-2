@@ -1,0 +1,47 @@
+------------------------------------------------------------------------------
+Linux Kernel Programming (Part 2)
+ Solutions to selected assignments ::
+ Ch 4: Handling hardware interrupts
+Answers to a few selected questions only.
+(For your convenience, we have repeated the questions below and have provided
+answers / solutions to some of them).
+------------------------------------------------------------------------------
+
+1. On an x86 system (a VM is fine), show that while the number of timer
+   interrupts (IRQ 0) remains the same, another periodic system interrupt
+   is actually continually incrementing (hence keeping track of time on a
+   per-CPU basis).
+   Hint: use a proc pseudo-file associated with interrupts.
+
+A. On x86_64, use the LOC (local) interrupt to see the timer increments; the
+   traditional timer interrupt (IRQ 0) remains the same while LOC increments
+   per processor core:
+
+$ while [ true ]; do egrep "timer$|^LOC" /proc/interrupts; sleep 1; done
+  0:         36          0          0          0   IO-APIC   2-edge      timer
+LOC:       8171       7662      13920      11589   Local timer interrupts
+  0:         36          0          0          0   IO-APIC   2-edge      timer
+LOC:       8201       7678      13942      11630   Local timer interrupts
+  0:         36          0          0          0   IO-APIC   2-edge      timer
+LOC:       8228       7690      13962      11671   Local timer interrupts
+  0:         36          0          0          0   IO-APIC   2-edge      timer
+LOC:       8257       7706      13979      11712   Local timer interrupts
+^C
+$ 
+ 
+
+4. The kernel provides "deferred functionality" mechanisms often called ______;
+   they're deliberately designed to get the best of both worlds: (i) _________
+   and (ii) ______.
+	(a) Top halves; run the hardirq as soon as possible; immediately restore
+	    the interrupted context after that.
+	(b) Bottom halves; to allow the driver author to do fairly lengthy interrupt
+	    processing if the situation demands it. Do this in a deferred, safe
+	    manner while allowing the business of the system to continue.
+	(c) Better half; do more work in the interrupt context so that you don't
+	    have to pay for it later.
+	(d) Bottom halves; run interrupt code with interrupts disabled and let it
+	    run for a long time.
+
+A. (b) 
+
