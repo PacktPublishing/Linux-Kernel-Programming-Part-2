@@ -1,9 +1,10 @@
-# 
+# Linux Kernel Programming Part 2 - Char Device Drivers and Kernel Synchronization
 
-<a href="https://www.packtpub.com/?utm_source=github&utm_medium=banner&utm_campaign=GitHubBanner"><img src="https://raw.githubusercontent.com/PacktPublishing/GitHub/master/GitHub.png" 
-alt="https://www.packtpub.com/" border="5" /></a>
+<a href="https://www.packtpub.com/?utm_source=github&utm_medium=banner&utm_campaign=GitHubBanner"><img src="https://static.packt-cdn.com/products/9781801079518/cover/smaller" 
+alt="Linux Kernel Programming Part 2 - Char Device Drivers and Kernel Synchronization
+height="256px" align="right"></a>
 
-This is the code repository for [](), published by Packt.
+This is the code repository for [Linux Kernel Programming Part 2 - Char Device Drivers and Kernel Synchronization](https://www.packtpub.com/?utm_source=github&utm_medium=banner&utm_campaign=GitHubBanner), published by Packt.
 
 **Linux Kernel Programming Part 2 - Char Device Drivers and Kernel Synchronization, published by Packt**
 
