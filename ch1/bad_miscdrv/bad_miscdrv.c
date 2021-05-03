@@ -1,5 +1,5 @@
 /*
- * ch12/bad_miscdrv_rdwr/bad_miscdrv_rdwr.c
+ * ch1/bad_miscdrv_rdwr/bad_miscdrv_rdwr.c
  ***************************************************************
  * This program is part of the source code released for the book
  *  "Learn Linux Kernel Development"
