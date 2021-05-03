@@ -50,10 +50,10 @@ MODULE_PARM_DESC(cause_an_oops,
 
 static struct dentry *gparent;
 
-/* We use a mutex lock; details in Ch 16 and Ch 17 */
+/* We use a mutex lock; details in Ch 6 and Ch 7 */
 DEFINE_MUTEX(mtx);
 
-/* Borrowed from ch11; the 'driver context' data structure;
+/* Borrowed from ch1; the 'driver context' data structure;
  * all relevant 'state info' reg the driver and (fictional) 'device'
  * is maintained here.
  */

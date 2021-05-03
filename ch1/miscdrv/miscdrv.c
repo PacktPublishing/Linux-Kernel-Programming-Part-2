@@ -1,21 +1,21 @@
 /*
- * ch12/miscdrv/miscdrv.c
+ * ch1/miscdrv/miscdrv.c
  ***************************************************************
  * This program is part of the source code released for the book
- *  "Learn Linux Kernel Development"
+ *  "Linux Kernel Programming (Part 2)"
  *  (c) Author: Kaiwan N Billimoria
  *  Publisher:  Packt
  *  GitHub repository:
- *  https://github.com/PacktPublishing/Learn-Linux-Kernel-Development
+ *  https://github.com/PacktPublishing/Linux-Kernel-Programming-Part-2
  *
- * From: Ch 12 : Writing a Simple Misc Device Driver
+ * From: Ch 1 : Writing a Simple Misc Device Driver
  ****************************************************************
  * Brief Description:
  * A simple 'skeleton' Linux character device driver, belonging to the
  * 'misc' class (major #10). Here, we simply build something of a 'template'
  * or skeleton for a misc driver.
  *
- * For details, please refer the book, Ch 12.
+ * For details, please refer the book, Ch 1.
  */
 #define pr_fmt(fmt) "%s:%s(): " fmt, KBUILD_MODNAME, __func__
 
@@ -30,7 +30,7 @@
 #define OURMODNAME   "miscdrv"
 
 MODULE_AUTHOR("Kaiwan N Billimoria");
-MODULE_DESCRIPTION("LLKD book:ch12/miscdrv: simple 'skeleton' misc char driver");
+MODULE_DESCRIPTION("LKP-2 book:ch1/miscdrv: simple 'skeleton' misc char driver");
 MODULE_LICENSE("Dual MIT/GPL");
 MODULE_VERSION("0.1");
 

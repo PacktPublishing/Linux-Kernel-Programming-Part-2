@@ -1,5 +1,5 @@
 /*
- * solutions_to_assgn/ch12/ioctl_undoc/kerneldrv_ioctl/ioctl_undoc_kdrv.c
+ * solutions_to_assgn/ch2/ioctl_undoc/kerneldrv_ioctl/ioctl_undoc_kdrv.c
  **************************************************************************
  * This program is part of the source code released for the book
  *  "Linux Kernel Programming"
@@ -45,7 +45,7 @@
 #define OURMODNAME   "ioctl_undoc_kdrv"
 MODULE_AUTHOR("<insert name here>");
 MODULE_DESCRIPTION(
-	"LLKD book:solutions_to_assgn/ch2/ioctl_undoc: a soln to ch2 assignment");
+"LKP-2 book:solutions_to_assgn/ch2/ioctl_undoc: a solution to ch2 assignment");
 MODULE_LICENSE("Dual MIT/GPL");
 MODULE_VERSION("0.1");
 

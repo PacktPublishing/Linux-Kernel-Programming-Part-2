@@ -1,7 +1,7 @@
 /* 
  * ioctl_llkd.h
  *
- * Part of : ch2 Assignment #1:
+ * Part of : LKP Part 2, ch2 Assignment #1:
  *
  * Common header for both the ioctl_kdrv.c kernel module and the userspace
  * C app ioctl_user_test.c
@@ -34,7 +34,7 @@ _IOWR(type,nr,datatype)       ioctl command for read/write transfers
 /* our dummy ioctl (IOC) Set POWER command */
 #define IOCTL_LLKD_IOCSPOWER		_IOW(IOCTL_LLKD_MAGIC, 2, int)
 
-/* Borrowed from ch11; the 'driver context' data structure;
+/* Borrowed from ch1; the 'driver context' data structure;
  * all relevant 'state info' reg the driver is here.
  */
 #ifndef __KERNEL__

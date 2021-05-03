@@ -14,8 +14,9 @@
  * This is an assignment from the chapter "User-Kernel communication pathways".
  *
  * sysfs_addrxlate: sysfs assignment #2 (a bit more advanced):
- * Address translation: exploiting the knowledge gained from this chapter and
- * Ch 7 section 'Direct-mapped RAM and address translation', write a simple
+ * Address translation: exploiting the knowledge gained from this chapter (as
+ * well as from the first book Ch 7 'Memory Management Internals -Essentials'
+ * section 'Direct-mapped RAM and address translation'), write a simple
  * platform driver that provides two sysfs interface files called
  * addrxlate_kva2pa and addrxlate_pa2kva; the way it should work: writing a
  * kva (kernel virtual address) into the sysfs file addrxlate_kva2pa should
@@ -44,7 +45,7 @@
 
 MODULE_AUTHOR("Kaiwan N Billimoria");
 MODULE_DESCRIPTION
-("LLKD book:solutions_to_assgn/ch2/sysfs_addrxlate: simple sysfs interfacing to translate linear addr");
+("LKP-2 book:solutions_to_assgn/ch2/sysfs_addrxlate: simple sysfs interfacing to translate linear addr");
 /*
  * We *require* the module to be released under GPL license (as well) to please
  * several core driver routines (like sysfs_create_group,

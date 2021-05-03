@@ -2,7 +2,7 @@
  * ch2/sysfs_simple_intf/sysfs_simple_intf.c
  ***************************************************************
  * This program is part of the source code released for the book
- *  "Linux Kernel Programming - Part 2"
+ *  "Linux Kernel Programming (Part 2)"
  *  (c) Author: Kaiwan N Billimoria
  *  Publisher:  Packt
  *  GitHub repository:

@@ -2,13 +2,13 @@
  * ch1/bad_miscdrv_rdwr/bad_miscdrv_rdwr.c
  ***************************************************************
  * This program is part of the source code released for the book
- *  "Learn Linux Kernel Development"
+ *  "Linux Kernel Programming (Part 2)"
  *  (c) Author: Kaiwan N Billimoria
  *  Publisher:  Packt
  *  GitHub repository:
- *  https://github.com/PacktPublishing/Learn-Linux-Kernel-Development
+ *  https://github.com/PacktPublishing/Linux-Kernel-Programming-Part-2
  *
- * From: Ch 12 : Writing a Simple Misc Character Device Driver
+ * From: Ch 1 : Writing a Simple Misc Character Device Driver
  ****************************************************************
  * Brief Description:
  * This driver is built upon our previous ../miscdrv_rdwr/ misc driver.
@@ -29,7 +29,7 @@
  * Also, it *only* works if the device file permissions allow a write for
  * public non-root users!
  *
- * For details, please refer the book, Ch 12.
+ * For details, please refer the book, Ch 1.
  */
 #define pr_fmt(fmt) "%s:%s(): " fmt, KBUILD_MODNAME, __func__
 
@@ -53,7 +53,7 @@
 
 #define OURMODNAME   "bad_miscdrv"
 MODULE_AUTHOR("Kaiwan N Billimoria");
-MODULE_DESCRIPTION("LLKD book:ch12/bad_miscdrv_rdwr: simple misc char driver"
+MODULE_DESCRIPTION("LKP-2 book:ch1/bad_miscdrv_rdwr: simple misc char driver"
 " with a 'secret' to read/write AND a (contrived) privesc!");
 MODULE_LICENSE("Dual MIT/GPL");
 MODULE_VERSION("0.1");

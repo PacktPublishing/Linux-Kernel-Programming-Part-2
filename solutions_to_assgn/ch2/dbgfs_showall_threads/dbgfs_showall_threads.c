@@ -14,10 +14,13 @@
  *
  * Write a kernel module that sets up a debugfs file here:
  *  <debugfs_mount_point>/dbgfs_showall_threads/dbgfs_showall_threads
- * when read, it should display some attributes of every thread alive. (Similar
- * to our code here: ch6/foreach/thrd_showall; there, though, the threads are
+ * when read, it should display some attributes of every thread alive.
+ * (Similar to our code in the first book here:
+ * https://github.com/PacktPublishing/Linux-Kernel-Programming
+ *  ch6/foreach/thrd_showall; there, though, the threads are
  * displayed only at insmod time; with a debugfs file, you can display info on
- * all threads at any time you choose to!
+ * all threads at any time you choose to!)
+ *
  * Suggested output is CSV format:
  *  TGID,PID,current,stack-start,name,#threads
  *   ([name] in square brackets => kernel thread;
@@ -45,7 +48,7 @@
 #define	OURMODNAME	"dbgfs_showall_threads"
 MODULE_AUTHOR("<insert name here>");
 MODULE_DESCRIPTION(
- "LLKD book:solutions_to_assgn/ch12/dbgfs_showall_threads: a soln to ch12 debugfs assignment #1");
+"LKP-2 book:solutions_to_assgn/ch2/dbgfs_showall_threads: a soln to ch2 debugfs assignment #1");
 MODULE_LICENSE("Dual MIT/GPL");
 MODULE_VERSION("0.1");
 
@@ -86,9 +89,11 @@ static ssize_t showall_threads(struct file *filp, char __user *ubuf,
 		return -ENOMEM;
 	}
 
-	/* The majority of the code below is pretty much a copy of this:
+	/* The majority of the code below is pretty much a copy of similar code
+	 * the first book here:
+	 * https://github.com/PacktPublishing/Linux-Kernel-Programming
 	 *  ch6/foreach/thrd_showall/thrd_showall.c:showthrds()
-	 * And why not! Here, we change the *output format* to CSV, as the
+	 * And why not; here, we change the *output format* to CSV, as the
 	 * spec requires... simply loop around collecting all the output in
 	 * our 'data' buffer and hand it off to userspace with just one call
 	 * to simple_read_from_buffer().

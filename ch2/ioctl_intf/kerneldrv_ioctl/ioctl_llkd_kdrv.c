@@ -42,7 +42,7 @@
 #define OURMODNAME   "ioctl_llkd_kdrv"
 MODULE_AUTHOR("Kaiwan N Billimoria");
 MODULE_DESCRIPTION(
-"LLKD book:user_kernel_comm/ioctl_intf: simple demo for using the ioctl interface");
+"LKP-2 book:ch2/ioctl_intf/kerneldrv_ioctl: simple demo for using the ioctl interface");
 MODULE_LICENSE("Dual MIT/GPL");
 MODULE_VERSION("0.1");
 

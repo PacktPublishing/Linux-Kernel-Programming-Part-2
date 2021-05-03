@@ -1,14 +1,14 @@
 /*
- * ch12/bad_miscdrv/rdwr_test_hackit.c
+ * ch1/bad_miscdrv/rdwr_test_hackit.c
  ***************************************************************
  * This program is part of the source code released for the book
- *  "Learn Linux Kernel Development"
+ *  "Linux Kernel Programming (Part 2)"
  *  (c) Author: Kaiwan N Billimoria
  *  Publisher:  Packt
  *  GitHub repository:
- *  https://github.com/PacktPublishing/Learn-Linux-Kernel-Development
+ *  https://github.com/PacktPublishing/Linux-Kernel-Programming-Part-2
  *
- * From: Ch 12 : Writing a simple misc character device driver
+ * From: Ch 1 : Writing a simple misc character device driver
  ****************************************************************
  * Brief Description:
  * A simple test bed for the bad_miscdrv demo driver; a small user space app to
@@ -24,7 +24,7 @@
  * method. If the driver has the DANGER_GETROOT_BUG macro defined, then it will
  * write this into the process's UID member, thus making us root!
  *
- * For details, please refer the book, Ch 12.
+ * For details, please refer the book, Ch 1.
  */
 #include <stdio.h>
 #include <unistd.h>

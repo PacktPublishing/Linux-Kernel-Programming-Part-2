@@ -1,14 +1,14 @@
 /*
- * ch12/miscdrv_rdwr/miscdrv_rdwr.c
+ * ch1/miscdrv_rdwr/miscdrv_rdwr.c
  ***************************************************************
  * This program is part of the source code released for the book
- *  "Learn Linux Kernel Development"
+ *  "Linux Kernel Programming (Part 2)"
  *  (c) Author: Kaiwan N Billimoria
  *  Publisher:  Packt
  *  GitHub repository:
- *  https://github.com/PacktPublishing/Learn-Linux-Kernel-Development
+ *  https://github.com/PacktPublishing/Linux-Kernel-Programming-Part-2
  *
- * From: Ch 12 : Writing a Simple Misc Character Device Driver
+ * From: Ch 1 : Writing a Simple Misc Character Device Driver
  ****************************************************************
  * Brief Description:
  * This driver is built upon our previous 'skeleton' ../miscdrv/ misc
@@ -23,7 +23,7 @@
  * When a user mode process writes data to us, we consider that data to be the
  * new 'secret' string and update it here (in driver memory).
  *
- * For details, please refer the book, Ch 12.
+ * For details, please refer the book, Ch 1.
  */
 #define pr_fmt(fmt) "%s:%s(): " fmt, KBUILD_MODNAME, __func__
 
@@ -47,7 +47,7 @@
 
 #define OURMODNAME   "miscdrv_rdwr"
 MODULE_AUTHOR("Kaiwan N Billimoria");
-MODULE_DESCRIPTION("LLKD book:ch12/miscdrv_rdwr: simple misc char driver with"
+MODULE_DESCRIPTION("LKP-2 book:ch1/miscdrv_rdwr: simple misc char driver with"
 " a 'secret' to read/write");
 MODULE_LICENSE("Dual MIT/GPL");
 MODULE_VERSION("0.1");

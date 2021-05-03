@@ -1,14 +1,14 @@
 /*
- * ch12/miscdrv_rdwr/rdwr_test_secret.c
+ * ch1/miscdrv_rdwr/rdwr_test_secret.c
  ***************************************************************
  * This program is part of the source code released for the book
- *  "Linux Kernel Development Cookbook"
+ *  "Linux Kernel Programming (Part 2)"
  *  (c) Author: Kaiwan N Billimoria
  *  Publisher:  Packt
  *  GitHub repository:
- *  https://github.com/PacktPublishing/Linux-Kernel-Development-Cookbook
+ *  https://github.com/PacktPublishing/Linux-Kernel-Programming-Part-2
  *
- * From: Ch 12 : Writing a Simple Misc Character Device Driver
+ * From: Ch 1 : Writing a Simple Misc Character Device Driver
  ****************************************************************
  * Brief Description:
  * A simple test bed for the miscdrv_rdwr demo driver; a small user space app
@@ -17,7 +17,7 @@
  * from the driver within kernel-space. Equivalently, one can use the write(2)
  * change the 'secret' (just plain text).
  *
- * For details, please refer the book, Ch 12.
+ * For details, please refer the book, Ch 1.
  * License: Dual MIT/GPL
  */
 #include <stdio.h>

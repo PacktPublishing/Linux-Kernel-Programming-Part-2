@@ -1,21 +1,21 @@
 /*
- * ch12/miscdrv/rdwr_test.c
+ * ch1/miscdrv/rdwr_test.c
  ***************************************************************
  * This program is part of the source code released for the book
- *  "Learn Linux Kernel Development"
+ *  "Linux Kernel Programming (Part 2)"
  *  (c) Author: Kaiwan N Billimoria
  *  Publisher:  Packt
  *  GitHub repository:
- *  https://github.com/PacktPublishing/Learn-Linux-Kernel-Development
+ *  https://github.com/PacktPublishing/Linux-Kernel-Programming-Part-2
  *
- * From: Ch 12 : Writing a Simple Misc Device Driver
+ * From: Ch 1 : Writing a Simple Misc Device Driver
  ****************************************************************
  * Brief Description:
  * USER SPACE app : a generic read-write test bed for demo drivers.
  * THis simple user mode app allows you to issue a read or a write
  * to a specified device file.
  *
- * For details, please refer the book, Ch 12.
+ * For details, please refer the book, Ch 1.
  */
 #include <stdio.h>
 #include <unistd.h>

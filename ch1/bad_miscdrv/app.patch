@@ -2,17 +2,17 @@
 +++ rdwr_test_hackit.c	2020-11-04 19:33:09.628101051 +0530
 @@ -1,5 +1,5 @@
  /*
-- * ch12/miscdrv/rdwr_test.c
-+ * ch12/bad_miscdrv/rdwr_test_hackit.c
+- * ch1/miscdrv/rdwr_test.c
++ * ch1/bad_miscdrv/rdwr_test_hackit.c
   ***************************************************************
   * This program is part of the source code released for the book
-  *  "Learn Linux Kernel Development"
+  *  "Linux Kernel Programming (Part 2)"
 @@ -8,43 +8,64 @@
   *  GitHub repository:
   *  https://github.com/PacktPublishing/Learn-Linux-Kernel-Development
   *
-- * From: Ch 12 : Writing a Simple Misc Device Driver
-+ * From: Ch 12 : Writing a simple misc character device driver
+- * From: Ch 1 : Writing a Simple Misc Device Driver
++ * From: Ch 1 : Writing a simple misc character device driver
   ****************************************************************
   * Brief Description:
 - * USER SPACE app : a generic read-write test bed for demo drivers.
@@ -31,7 +31,7 @@
 + * method. If the driver has the DANGER_GETROOT_BUG macro defined, then it will
 + * write this into the process's UID member, thus making us root!
   *
-  * For details, please refer the book, Ch 12.
+  * For details, please refer the book, Ch 1.
   */
  #include <stdio.h>
  #include <unistd.h>
