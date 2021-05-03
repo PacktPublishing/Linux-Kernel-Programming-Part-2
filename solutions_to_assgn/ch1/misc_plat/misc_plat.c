@@ -144,7 +144,7 @@ static const struct file_operations llkd_misc_fops = {
 	 * implement an ioctl method; when issued with the 'GETSTATS' 'command',
 	 * it should return the statistics (tx, rx, errors) to the calling app.
 	 * Refer to our online material "User-Kernel Communication Pathways" for
-	 * the details oh how to use the ioctl(), etc.
+	 * the details on how to use the ioctl(), etc.
 	 */
 };
 
