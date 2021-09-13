@@ -1,14 +1,14 @@
 /*
- * ch15/sed3/sed3_drv/sed3_drv.c
+ * ch5/sed3/sed3_drv/sed3_drv.c
  ***************************************************************
  * This program is part of the source code released for the book
- *  "Learn Linux Kernel Development"
+ *  "Linux Kernel Programming - Part 2"
  *  (c) Author: Kaiwan N Billimoria
  *  Publisher:  Packt
  *  GitHub repository:
- *  https://github.com/PacktPublishing/Learn-Linux-Kernel-Development
+ *  https://github.com/PacktPublishing/Linux-Kernel-Programming-Part-2
  *
- * From: Ch 15 : Timers, kernel threads and more
+ * From: Ch 5 : Timers, kernel threads and more
  ****************************************************************
  * Brief Description:
  *
@@ -75,7 +75,7 @@
  * workqueue instead of manually managing kthreads!
  * Note that the user space app is the same as in sed2.
  *
- * For details, pl refer the book, Ch 15.
+ * For details, pl refer the book, Ch 5.
  */
 #define pr_fmt(fmt) "%s:%s(): " fmt, KBUILD_MODNAME, __func__
 

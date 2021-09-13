@@ -1,19 +1,19 @@
 #!/bin/bash
-# ch14/irqsoff_latency_ftrc.sh
+# ch4/irqsoff_latency_ftrc.sh
 #----------------------------------------------------------------------
 # This program is part of the source code released for the book
-#  "Learn Linux Kernel Development"
+#  "Linux Kernel Programming - Part 2"
 #  (c) Author: Kaiwan N Billimoria
 #  Publisher:  Packt
 #  GitHub repository:
-#  https://github.com/PacktPublishing/Learn-Linux-Kernel-Development
+#  https://github.com/PacktPublishing/Linux-Kernel-Programming-Part-2
 # 
-# For details, refer the book, Ch 14.
+# For details, refer the book, Ch 4.
 #----------------------------------------------------------------------
 # Brief Description:
 # This is a simple wrapper script; we use it to gauge the maximum IRQs-off
 # latency on the system. It exploits the kernel's Ftrace infrastructure.
-# For details, refer the book, Ch 14 - Handling hardware interrupts, section
+# For details, refer the book, Ch 4 - Handling hardware interrupts, section
 # 'Finding the interrupts disabled worst-case latency with Ftrace'.
 name=$(basename $(realpath $0))
 

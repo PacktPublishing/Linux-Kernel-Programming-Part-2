@@ -1,14 +1,14 @@
 /*
- * ch15/sed1/sed1_drv/sed1_drv.c
+ * ch5/sed1/sed1_drv/sed1_drv.c
  ***************************************************************
- * This program is part of the source code released for the book
- *  "Learn Linux Kernel Development"
+  * This program is part of the source code released for the book
+ *  "Linux Kernel Programming - Part 2"
  *  (c) Author: Kaiwan N Billimoria
  *  Publisher:  Packt
  *  GitHub repository:
- *  https://github.com/PacktPublishing/Learn-Linux-Kernel-Development
+ *  https://github.com/PacktPublishing/Linux-Kernel-Programming-Part-2
  *
- * From: Ch 15 : Timers, kernel threads and more
+ * From: Ch 5 : Timers, kernel threads and more
  ****************************************************************
  * Brief Description:
  *
@@ -34,7 +34,7 @@
  * would usually be appropriate in a driver, we simply stick with the regular
  * pr_<foo>() routines).
  *
- * For details, pl refer the book, Ch 15.
+ * For details, pl refer the book, Ch 5.
  */
 #define pr_fmt(fmt) "%s:%s(): " fmt, KBUILD_MODNAME, __func__
 
@@ -207,7 +207,7 @@ static int ioctl_miscdrv(struct inode *ino, struct file *filp, unsigned int cmd,
 
 	//pr_debug("In ioctl method, cmd=%d\n", _IOC_NR(cmd));
 
-// TODO :: use dev_*() instead of pr_*()
+// TODO :: use the dev_*() instead of pr_*() macros
 
 	/* Verify stuff: is the ioctl's for us? etc.. */
 	if (_IOC_TYPE(cmd) != IOCTL_LLKD_SED_MAGIC) {

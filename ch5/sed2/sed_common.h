@@ -1,14 +1,14 @@
 /*
- * ch15/sed2/sed_common.h
+ * ch5/sed2/sed_common.h
  ***************************************************************
  * This program is part of the source code released for the book
- *  "Learn Linux Kernel Development"
+ *  "Linux Kernel Programming - Part 2"
  *  (c) Author: Kaiwan N Billimoria
  *  Publisher:  Packt
  *  GitHub repository:
- *  https://github.com/PacktPublishing/Learn-Linux-Kernel-Development
+ *  https://github.com/PacktPublishing/Linux-Kernel-Programming-Part-2
  *
- * From: Ch 15 : Timers, kernel threads and more
+ * From: Ch 5 : Timers, kernel threads and more
  ****************************************************************
  * Common header for both the userapp_sed1.c user space app and the
  * sed1_driver kernel module.

@@ -1,28 +1,28 @@
 /*
- * ch15/workq_simple/workq_simple.c
+ * ch5/workq_simple/workq_simple.c
  ***************************************************************
  * This program is part of the source code released for the book
- *  "Learn Linux Kernel Development"
+ *  "Linux Kernel Programming - Part 2"
  *  (c) Author: Kaiwan N Billimoria
  *  Publisher:  Packt
  *  GitHub repository:
- *  https://github.com/PacktPublishing/Learn-Linux-Kernel-Development
+ *  https://github.com/PacktPublishing/Linux-Kernel-Programming-Part-2
  *
- * From: Ch 15 : Timers, kernel threads and more
+ * From: Ch 5 : Timers, kernel threads and more
  ****************************************************************
  * Brief Description:
  * A demo of a simple workqueue in action. We use the default kernel-global
  * workqueue; we enqueue a work item onto it (via INIT_WORK()) and 'schedule'
  * it to execute via the workqueue kthreads (using the schedule_work() API).
  * We cleanup (in the exit method) via the cancel_work_sync() API.
- * This module is built upon our earlier ch15/timer_simple LKM. Here, we also
+ * This module is built upon our earlier ch5/timer_simple LKM. Here, we also
  * demo making use of the container_of() macro to be able to access data from
  * within our work queue callback function - a pretty typical thing. Also, we
  * setup the timer to keep expiring until our 'data' variable hits zero; in
  * addition this time, we use this - the kernel timeout - as an opportunity to
  * 'schedule' our work queue function to run...
  *
- * For details, please refer the book, Ch 15.
+ * For details, please refer the book, Ch 5.
  */
 #define pr_fmt(fmt) "%s:%s(): " fmt, KBUILD_MODNAME, __func__
 

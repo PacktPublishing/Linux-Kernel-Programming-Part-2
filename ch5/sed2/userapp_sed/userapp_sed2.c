@@ -1,14 +1,14 @@
 /*
- * ch15/sed2/userapp_sed/userapp_sed2.c
+ * ch5/sed2/userapp_sed/userapp_sed2.c
  ***************************************************************
  * This program is part of the source code released for the book
- *  "Learn Linux Kernel Development"
+ *  "Linux Kernel Programming - Part 2"
  *  (c) Author: Kaiwan N Billimoria
  *  Publisher:  Packt
  *  GitHub repository:
- *  https://github.com/PacktPublishing/Learn-Linux-Kernel-Development
+ *  https://github.com/PacktPublishing/Linux-Kernel-Programming-Part-2
  *
- * From: Ch 15 : Timers, kernel threads and more
+ * From: Ch 5 : Timers, kernel threads and more
  ****************************************************************
  * Brief Description:
  * The user space app for our 'sed' v2 - simple encrypt decrypt - demo driver.
@@ -22,7 +22,7 @@
  *      <------------ sed2 driver -------------->
  *by:   [kthread]    [ioctl]  [kthread]   [ioctl]
  *
- * For details, pl refer the book, Ch 15.
+ * For details, pl refer the book, Ch 5.
  */
 #include <stdio.h>
 #include <unistd.h>

@@ -1,14 +1,14 @@
 /*
- * ch15/sed2/sed2_drv/sed2_drv.c
+ * ch5/sed2/sed2_drv/sed2_drv.c
  ***************************************************************
  * This program is part of the source code released for the book
- *  "Learn Linux Kernel Development"
+ *  "Linux Kernel Programming - Part 2"
  *  (c) Author: Kaiwan N Billimoria
  *  Publisher:  Packt
  *  GitHub repository:
- *  https://github.com/PacktPublishing/Learn-Linux-Kernel-Development
+ *  https://github.com/PacktPublishing/Linux-Kernel-Programming-Part-2
  *
- * From: Ch 15 : Timers, kernel threads and more
+ * From: Ch 5 : Timers, kernel threads and more
  ****************************************************************
  * Brief Description:
  *
@@ -67,7 +67,7 @@
  *         v            v          v            v
  *       {--------- shared memory region ---------}
  *
- * For details, pl refer the book, Ch 15.
+ * For details, pl refer the book, Ch 5.
  */
 #define pr_fmt(fmt) "%s:%s(): " fmt, KBUILD_MODNAME, __func__
 

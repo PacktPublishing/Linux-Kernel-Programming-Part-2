@@ -1,5 +1,5 @@
 ------------------------------------------------------------------------------
-Linux Kernel Programming (Part 2)
+Linux Kernel Programming - Part 2
  Solutions to selected assignments ::
  Ch 7: Kernel Synchronization - Part 2
 Answers to a few selected questions only.

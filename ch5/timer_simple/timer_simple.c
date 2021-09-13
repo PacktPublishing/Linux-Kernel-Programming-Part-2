@@ -1,21 +1,21 @@
 /*
- * ch15/timer_simple/timer_simple.c
+ * ch5/timer_simple/timer_simple.c
  ***************************************************************
  * This program is part of the source code released for the book
- *  "Learn Linux Kernel Development"
+ *  "Linux Kernel Programming - Part 2"
  *  (c) Author: Kaiwan N Billimoria
  *  Publisher:  Packt
  *  GitHub repository:
- *  https://github.com/PacktPublishing/Learn-Linux-Kernel-Development
+ *  https://github.com/PacktPublishing/Linux-Kernel-Programming-Part-2
  *
- * From: Ch 15 : Timers, kernel threads and more
+ * From: Ch 5 : Timers, kernel threads and more
  ****************************************************************
  * Brief Description:
  * A demo of a simple kernel timer in action. We make use of the from_timer()
  * to be able to access data from within the callback, and setup the timer to
  * keep expiring until our 'data' variable hits zero.
  *
- * For details, please refer the book, Ch 15.
+ * For details, please refer the book, Ch 5.
  */
 #define pr_fmt(fmt) "%s:%s(): " fmt, KBUILD_MODNAME, __func__
 
