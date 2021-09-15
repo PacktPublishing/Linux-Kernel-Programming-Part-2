@@ -2,7 +2,7 @@
  * convenient.h
  ***********************************************************************
  * This program is part of the source code released for the book
- *  "Linux Kernel Programming (part 2)"
+ *  "Linux Kernel Programming - Part 2"
  *  (c) Author: Kaiwan N Billimoria
  *  Publisher:  Packt
  *  GitHub repository:
@@ -13,8 +13,8 @@
  * A few convenience macros and routines..
  * Mostly for kernel-space usage, some for user-space as well.
  */
-#ifndef __LLKD_CONVENIENT_H__
-#define __LLKD_CONVENIENT_H__
+#ifndef __LKP2_CONVENIENT_H__
+#define __LKP2_CONVENIENT_H__
 
 #include <asm/param.h>		/* HZ */
 #include <linux/sched.h>
@@ -172,7 +172,7 @@
 	"%03d) %c%s%c:%d   |  "                                                      \
 	"%c%c%c%u   "                                                                \
 	"/* %s() */\n"                                                               \
-	, smp_processor_id(),                                                        \
+	, raw_smp_processor_id(),                                                    \
 	(!current->mm?'[':' '), current->comm, (!current->mm?']':' '), current->pid, \
 	(irqs_disabled()?'d':'.'),                                                   \
 	(need_resched()?'N':'.'),                                                    \
@@ -288,4 +288,4 @@ void delay_sec(long val)
 } while (0)
 #endif   /* #ifdef __KERNEL__ */
 
-#endif   /* #ifndef __LLKD_CONVENIENT_H__ */
+#endif   /* #ifndef __LKP2_CONVENIENT_H__ */
