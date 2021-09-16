@@ -252,13 +252,14 @@ static const struct file_operations llkd_misc_fops = {
 	.write = write_miscdrv_rdwr,
 	.llseek = no_llseek,	// dummy, we don't support lseek(2)
 	.release = close_miscdrv_rdwr,
-	/* As you learn more reg device drivers, you'll realize that the
-	 * ioctl() would be a very useful method here. As an exercise,
-	 * implement an ioctl method; when issued with the 'GETSTATS' 'command',
-	 * it should return the statistics (tx, rx, errors) to the calling app.
-	 * Refer to our online material "User-Kernel Communication Pathways" for
-	 * the details oh how to use the ioctl(), etc.
-	 */
+    /* As you learn more reg device drivers, you'll realize that the
+     * ioctl() would be a very useful method here. As an exercise,
+     * implement an ioctl method; when issued with the 'GETSTATS' 'command',
+     * it should return the statistics (tx, rx, errors) to the calling app.
+     * Refer to Ch 2 - "User-Kernel Communication Pathways" for the gory
+     * details on how to use the ioctl(), procfs, debugfs, netlink sockets
+     * for interfacing your driver with userspace apps.
+     */
 };
 
 static struct miscdevice llkd_miscdev = {
