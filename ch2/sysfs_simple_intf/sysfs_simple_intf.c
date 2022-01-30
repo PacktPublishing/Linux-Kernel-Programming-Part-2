@@ -252,7 +252,7 @@ static int __init sysfs_simple_intf_init(void)
 	/* The device_create_file() API creates a sysfs attribute file for
 	 * given device (1st parameter); the second parameter is the pointer
 	 * to it's struct device_attribute structure dev_attr_<name> which was
-	 * instantiated by our DEV_ATTR{_RW|RO} macros above ...
+	 * instantiated by our DEVICE_ATTR{_RW|RO} macros above ...
 	 * API used:
 	 * int device_create_file(struct device *dev,
 	 *		const struct device_attribute *attr);
