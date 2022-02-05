@@ -8,9 +8,10 @@
  *  GitHub repository:
  *  https://github.com/PacktPublishing/Linux-Kernel-Programming-Part-2
  *
- * From: Ch 15 : Kernel timers, workqueues and more
+ * From: Ch 5 : Kernel timers, workqueues and more
  ****************************************************************
  * Brief Description:
+ * Demo delays and sleeps in kernel-space; show the actual time taken.
  *
  * For details, please refer the book, Ch 5.
  */
