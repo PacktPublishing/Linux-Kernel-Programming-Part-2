@@ -56,7 +56,14 @@ static void ding(struct timer_list *timer)
 {
 	struct st_ctx *priv = from_timer(priv, timer, tmr);
 
-	pr_debug("timed out... data=%d\n", priv->data--);
+	/* I now realize this is quite dangerous!
+	 * Unless DEBUG is defined, the below pr_debug() doesn't run and the data
+	 * member isn't decremented, creating in effect, an infinite execution!
+	 * Let's fix this...
+	 */
+	/* pr_debug("timed out... data=%d\n", priv->data--); */
+	pr_debug("timed out... data=%d\n", priv->data);
+	priv->data--;
 	PRINT_CTX();
 
 	/* until countdown done, fire it again! */
