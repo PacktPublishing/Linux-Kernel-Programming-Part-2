@@ -121,7 +121,7 @@ static struct drv_ctx *alloc_init_drvctx(void)
 	return drvctx;
 }
 
-static int debugfs_simple_intf_init(void)
+static int __init debugfs_simple_intf_init(void)
 {
 	int stat = 0;
 	struct dentry *file1, *file2;
@@ -174,12 +174,16 @@ static int debugfs_simple_intf_init(void)
 	 * chance to perform a validity check on the value being written..
 	 */
 #define DBGFS_FILE2	"llkd_dbgfs_debug_level"
-	file2 = debugfs_create_u32(DBGFS_FILE2, 0644, gparent, &debug_level);
-	if (!file2) {
-		pr_info("debugfs_create_u32 failed, aborting...\n");
-		stat = PTR_ERR(file2);
-		goto out_fail_3;
-	}
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(5, 7, 0)  // ref commit 2b07021a94
+    debugfs_create_u32(DBGFS_FILE2, 0644, gparent, &debug_level);
+#else
+    file2 = debugfs_create_u32(DBGFS_FILE2, 0644, gparent, &debug_level);
+    if (!file2) {
+        pr_info("debugfs_create_u32 failed, aborting...\n");
+        stat = PTR_ERR(file2);
+        goto out_fail_3;
+    }   
+#endif
 	pr_debug("debugfs file 2 <debugfs_mountpt>/%s/%s created\n", OURMODNAME, DBGFS_FILE2);
 
 	pr_info("initialized (fyi, our 'cause an Oops' setting is currently %s)\n",
@@ -194,7 +198,7 @@ static int debugfs_simple_intf_init(void)
 	return stat;
 }
 
-static void debugfs_simple_intf_cleanup(void)
+static void __exit debugfs_simple_intf_cleanup(void)
 {
 	kfree(gdrvctx);
 	if (!cause_an_oops)
