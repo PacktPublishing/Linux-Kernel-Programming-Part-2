@@ -1,3 +1,7 @@
+## [Get this title for $10 on Packt's Spring Sale](https://www.packt.com/B17422?utm_source=github&utm_medium=packt-github-repo&utm_campaign=spring_10_dollar_2022)
+-----
+For a limited period, all eBooks and Videos are only $10. All the practical content you need \- by developers, for developers
+
 # Linux Kernel Programming Part 2 - Char Device Drivers and Kernel Synchronization
 
 <a href="https://www.packtpub.com/product/linux-kernel-programming-part-2-char-device-drivers-and-kernel-synchronization/9781801079518"><img src="https://static.packt-cdn.com/products/9781801079518/cover/smaller" alt="Linux Kernel Programming Part 2 - Char Device Drivers and Kernel Synchronization" height="256px" align="right"></a>
