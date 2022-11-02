@@ -49,7 +49,9 @@ static void ding(struct timer_list *timer)
 	 * container_of() macro! This allows us to retrieve access to our
 	 * 'parent' driver context structure
 	 */
-	pr_debug("timed out... data=%d\n", priv->data--);
+	// Whoops! Bugfix- decrement even if DEBUG is off...
+	priv->data--;
+	pr_debug("timed out... data=%d\n", priv->data);
 	PRINT_CTX();
 
 	/* until countdown done, fire it again! */
