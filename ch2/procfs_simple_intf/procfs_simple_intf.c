@@ -154,7 +154,7 @@ static int myproc_open_config1(struct inode *inode, struct file *file)
 {
 	return single_open(file, proc_show_config1, NULL);
 }
-
+#if LINUX_VERSION_CODE < KERNEL_VERSION(5, 6, 0)
 static const struct file_operations fops_rdwr_config1 = {
 	.owner = THIS_MODULE,
 	.open = myproc_open_config1,
@@ -163,7 +163,15 @@ static const struct file_operations fops_rdwr_config1 = {
 	.llseek = seq_lseek,
 	.release = single_release,
 };
-
+#else
+static const struct proc_ops fops_rdwr_config1 = {
+	.proc_open = myproc_open_config1,
+	.proc_read = seq_read,
+	.proc_write = myproc_write_config1,
+	.proc_lseek = seq_lseek,
+	.proc_release = single_release,
+};
+#endif
 /*------------------ proc file 3 -------------------------------------*/
 /* Our proc file 3: displays the 'driver context' data structure */
 static int proc_show_drvctx(struct seq_file *seq, void *v)
@@ -187,6 +195,7 @@ static int myproc_open_drvctx(struct inode *inode, struct file *file)
 	return single_open(file, proc_show_drvctx, NULL);
 }
 
+#if LINUX_VERSION_CODE < KERNEL_VERSION(5, 6, 0)
 static const struct file_operations fops_show_drvctx = {
 	.owner = THIS_MODULE,
 	.open = myproc_open_drvctx,
@@ -194,6 +203,14 @@ static const struct file_operations fops_show_drvctx = {
 	.llseek = seq_lseek,
 	.release = single_release,
 };
+#else
+static const struct proc_ops fops_show_drvctx = {
+	.proc_open = myproc_open_drvctx,
+	.proc_read = seq_read,
+	.proc_lseek = seq_lseek,
+	.proc_release = single_release,
+};
+#endif
 
 static struct drv_ctx *alloc_init_drvctx(void)
 {
@@ -286,6 +303,7 @@ static int myproc_open_dbg_level(struct inode *inode, struct file *file)
 	return single_open(file, proc_show_debug_level, NULL);
 }
 
+#if LINUX_VERSION_CODE < KERNEL_VERSION(5, 6, 0)
 static const struct file_operations fops_rdwr_dbg_level = {
 	.owner = THIS_MODULE,
 	.open = myproc_open_dbg_level,
@@ -294,6 +312,15 @@ static const struct file_operations fops_rdwr_dbg_level = {
 	.llseek = seq_lseek,
 	.release = single_release,
 };
+#else
+static const struct proc_ops fops_rdwr_dbg_level = {
+	.proc_open = myproc_open_dbg_level,
+	.proc_read = seq_read,
+	.proc_write = myproc_write_debug_level,
+	.proc_lseek = seq_lseek,
+	.proc_release = single_release,
+};
+#endif
 
 /*--------------------------------------------------------------------*/
 static struct proc_dir_entry *gprocdir;
@@ -384,7 +411,12 @@ static int __init procfs_simple_intf_init(void)
 	return 0;	/* success */
 
  out_fail_3:
+
+#if LINUX_VERSION_CODE < KERNEL_VERSION(5, 9, 0)
 	kzfree(gdrvctx);
+#else
+    kfree_sensitive(gdrvctx);
+#endif
  out_fail_2:
 	remove_proc_subtree(OURMODNAME, NULL);
  out_fail_1:
@@ -395,7 +427,11 @@ static void __exit procfs_simple_intf_cleanup(void)
 {
 	gdrvctx->power = 0;
 	remove_proc_subtree(OURMODNAME, NULL);
+#if LINUX_VERSION_CODE < KERNEL_VERSION(5, 9, 0)
 	kzfree(gdrvctx);
+#else
+    kfree_sensitive(gdrvctx);
+#endif
 	pr_info("removed\n");
 }
 
