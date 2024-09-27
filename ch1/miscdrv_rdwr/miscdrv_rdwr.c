@@ -204,7 +204,7 @@ static ssize_t write_miscdrv_rdwr(struct file *filp, const char __user *ubuf,
 	 * and then return.
 	 * Here, we do nothing, we just pretend we've done everything :-)
 	 */
-	strlcpy(ctx->oursecret, kbuf, (count > MAXBYTES ? MAXBYTES : count));
+	strscpy(ctx->oursecret, kbuf, (count > MAXBYTES ? MAXBYTES : count));
 #if 0
 	/* Might be useful to actually see a hex dump of the driver 'context' */
 	print_hex_dump_bytes("ctx ", DUMP_PREFIX_OFFSET,
@@ -299,7 +299,7 @@ static int __init miscdrv_rdwr_init(void)
 
 	ctx->dev = dev;
 	/* Initialize the "secret" value :-) */
-	strlcpy(ctx->oursecret, "initmsg", 8);
+	strscpy(ctx->oursecret, "initmsg", 8);
 	dev_dbg(ctx->dev, "A sample print via the dev_dbg(): driver initialized\n");
 
 	return 0;		/* success */
