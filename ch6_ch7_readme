@@ -5,3 +5,16 @@ Chapter 6, Kernel Synchronization - Part 1 :
 
 Chapter 7, Kernel Synchronization - Part 2
  https://github.com/PacktPublishing/Linux-Kernel-Programming/tree/master/ch13
+
+
+*UPDATE*
+With the 2nd Edition of the 'Linux Kernel Programming' book being released (Feb
+2024), the following locations have updated code:
+
+Chapter 12, Kernel Synchronization - Part 1 :
+ https://github.com/PacktPublishing/Linux-Kernel-Programming_2E/tree/main/ch12
+
+Chapter 13, Kernel Synchronization - Part 2
+ https://github.com/PacktPublishing/Linux-Kernel-Programming_2E/tree/main/ch13 
+
+(Of course, the LKP 2E book's Ch 11 and Ch 12 should be read to make the most of these.)
