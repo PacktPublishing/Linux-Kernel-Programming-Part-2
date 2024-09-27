@@ -74,9 +74,24 @@ static ssize_t showall_threads(struct file *filp, char __user *ubuf,
 	char tmp[TMPMAX];
 	ssize_t numthrds = 0, n = 0;
 
-	do_each_thread(g, t) {
+	/*
+         * FYI, from 6.6, the do_each_thread()/while_each_thread() style macros
+	 * have been removed in favor of the simpler and more readable
+	 * for_each_process_thread() macro.
+	 * See commit # 5ffd2c37cb7a53d520...
+	 */
+#if LINUX_VERSION_CODE < KERNEL_VERSION(6, 6, 0)
+	do_each_thread(g, t) {     /* 'p' : process ptr; 't': thread ptr */
+#else
+	for_each_process_thread(g, t) {   /* 'p' : process ptr; 't': thread ptr */
+#endif
 		numthrds++;
+#if LINUX_VERSION_CODE < KERNEL_VERSION(6, 6, 0)
 	} while_each_thread(g, t);
+#else
+	}
+#endif
+
 	pr_debug("# threads alive: %zd\n", numthrds);
 
 	/* We attempt to calculate the max amt of memory required; this,
@@ -109,7 +124,11 @@ static ssize_t showall_threads(struct file *filp, char __user *ubuf,
 	snprintf(data, TMPMAX, "%d,%d,0x%px,0x%px,[%s]\n",
 		 t->pid, t->pid, t, t->stack, t->comm);
 
-	do_each_thread(g, t) {	/* 'g' : process ptr; 't': thread ptr */
+#if LINUX_VERSION_CODE < KERNEL_VERSION(6, 6, 0)
+	do_each_thread(g, t) {     /* 'p' : process ptr; 't': thread ptr */
+#else
+	for_each_process_thread(g, t) {   /* 'p' : process ptr; 't': thread ptr */
+#endif
 		task_lock(t);
 
 		memset(tmp, 0, sizeof(tmp));
@@ -151,7 +170,11 @@ static ssize_t showall_threads(struct file *filp, char __user *ubuf,
 		strncat(data, tmp, 2);
 		total++;
 		task_unlock(t);
+#if LINUX_VERSION_CODE < KERNEL_VERSION(6, 6, 0)
 	} while_each_thread(g, t);
+#else
+	}
+#endif
 #if 0
 	/* <same as above, reg the reader-writer spinlock for the task list> */
 	read_unlock(&tasklist_lock);
