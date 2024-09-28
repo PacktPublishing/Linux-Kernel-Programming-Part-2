@@ -112,7 +112,7 @@ int main(int argc, char **argv)
 			close(fd);
 			exit(EXIT_FAILURE);
 		}
-		printf("%s: wrote %ld bytes to %s\n", argv[0], n, argv[2]);
+		printf("%s: wrote %zd bytes to %s\n", argv[0], n, argv[2]);
 	}
 
 	if (stay_alive == 1) {
