@@ -163,7 +163,7 @@ clean:
 	@echo
 	make -C $(KDIR) M=$(PWD) clean
 # from 'indent'; comment out if you want the backup kept
-	rm -f *~ *.dtb
+	rm -f *~ *.dtb rdwr_test 2>/dev/null
 
 # Any usermode programs to build? Insert the build target(s) below
 #--- special case: target to build our user mode test app
