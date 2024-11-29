@@ -45,7 +45,6 @@
 
 #include "../../convenient.h"
 
-#define OURMODNAME   "miscdrv_rdwr"
 MODULE_AUTHOR("Kaiwan N Billimoria");
 MODULE_DESCRIPTION("LKP-2 book:ch1/miscdrv_rdwr: simple misc char driver with"
 " a 'secret' to read/write");
@@ -173,7 +172,7 @@ static ssize_t write_miscdrv_rdwr(struct file *filp, const char __user *ubuf,
 	char tasknm[TASK_COMM_LEN];
 
 	PRINT_CTX();
-	if (unlikely(count > MAXBYTES)) {	/* paranoia */
+	if (unlikely(count > MAXBYTES)) {
 		dev_warn(dev, "count %zu exceeds max # of bytes allowed, "
 			"aborting write\n", count);
 		goto out_nomem;
@@ -257,7 +256,7 @@ static const struct file_operations llkd_misc_fops = {
      * implement an ioctl method; when issued with the 'GETSTATS' 'command',
      * it should return the statistics (tx, rx, errors) to the calling app.
      * Refer to Ch 2 - "User-Kernel Communication Pathways" for the gory
-     * details on how to use the ioctl(), procfs, debugfs, netlink sockets
+     * details on how to use the ioctl(), procfs, sysfs, debugfs, netlink sockets
      * for interfacing your driver with userspace apps.
      */
 };
@@ -278,7 +277,7 @@ static int __init miscdrv_rdwr_init(void)
 
 	ret = misc_register(&llkd_miscdev);
 	if (ret) {
-		pr_notice("%s: misc device registration failed, aborting\n", OURMODNAME);
+		pr_err("misc device registration failed, aborting\n");
 		return ret;
 	}
 	/* Retrieve the device pointer for this device */
