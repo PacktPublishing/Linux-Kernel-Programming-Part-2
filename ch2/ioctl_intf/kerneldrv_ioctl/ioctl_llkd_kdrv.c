@@ -17,6 +17,9 @@
  * Architected as a simple device driver for a fictional 'device'; we use
  * the ioctl(2) system call to interface with the device from/to a user mode
  * 'C' application.
+ * As well, the char driver APIs used here conform to the 'older' raw character
+ * driver framework; an easier and modern way to build it is via the char 'misc'
+ * driver framework of course (you can do that as an exercise!).
  *
  * For details, please refer the book.
  */
