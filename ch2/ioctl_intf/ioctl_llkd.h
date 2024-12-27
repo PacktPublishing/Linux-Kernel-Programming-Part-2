@@ -19,7 +19,8 @@
  */
 
 /* The 'magic' number for our driver; see
- * Documentation/ioctl/ioctl-number.rst
+ * https://github.com/torvalds/linux/blob/master/Documentation/userspace-api/ioctl/ioctl-number.rst
+ *
  * Of course, we don't know for _sure_ if the magic # we choose here this
  * will remain free; it really doesn't matter, this is just for demo purposes;
  * don't try and upstream this without further investigation :-)
@@ -33,6 +34,9 @@ _IO(type,nr)                  ioctl command with no argument
 _IOR(type,nr,datatype)        ioctl command for reading data from the kernel/drv
 _IOW(type,nr,datatype)        ioctl command for writing data to the kernel/drv
 _IOWR(type,nr,datatype)       ioctl command for read/write transfers
+ *
+ * For details, see the official kernel doc:
+ *  https://elixir.bootlin.com/linux/latest/source/Documentation/driver-api/ioctl.rst
 */
 /* our dummy ioctl (IOC) RESET command */
 #define IOCTL_LLKD_IOCRESET		_IO(IOCTL_LLKD_MAGIC, 0)

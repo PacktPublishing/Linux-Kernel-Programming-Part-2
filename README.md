@@ -50,6 +50,18 @@ With the following software and hardware list you can run all code files present
 
 We also provide a PDF file that has color images of the screenshots/diagrams used in this book. [Click here to download it](http://www.packtpub.com/sites/default/files/downloads/9781801079518_ColorImages.pdf).
 
+## Known Errata
+- Page 111: the comment
+`/* The 'magic' number for our driver; see Documentation/ioctl/ioctl-
+number.rst ...`
+
+should read
+
+   `/* The 'magic' number for our driver; see Documentation/userspace-api/ioctl/ioctl-
+number.rst ...`
+
+
+
 ### Related products
 * Mastering Linux Device Driver Development [[Packt]](https://www.packtpub.com/product/mastering-linux-device-driver-development/9781789342048?utm_source=github&utm_medium=repository&utm_campaign=9781789342048) [[Amazon]](https://www.amazon.com/dp/178934204X)
 
