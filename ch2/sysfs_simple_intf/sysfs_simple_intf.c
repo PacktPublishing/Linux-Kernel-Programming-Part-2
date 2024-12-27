@@ -14,7 +14,7 @@
  *
  * Simple kernel module to demo interfacing with userspace via sysfs.
  * Sysfs is one of several available user<->kernel interfaces; the others
- * include sysfs, debugfs, netlink sockets and the ioctl.
+ * include procfs, debugfs, netlink sockets and the ioctl.
  * In order to demonstrate (and let you easily contrast) between these
  * user<->kernel interfaces, in all cases we create three (or four) 'files' or
  * 'objects' (by issuing the appropriate kernel APIs).
@@ -74,7 +74,6 @@ MODULE_DESCRIPTION("LKP-2 book:ch2/sysfs_simple_intf: simple sysfs interfacing d
 MODULE_LICENSE("Dual MIT/GPL");
 MODULE_VERSION("0.1");
 
-#define OURMODNAME		"sysfs_simple_intf"
 #define SYSFS_FILE1		llkdsysfs_debug_level
 #define SYSFS_FILE2		llkdsysfs_pgoff
 #define SYSFS_FILE3		llkdsysfs_pressure
@@ -121,7 +120,7 @@ static ssize_t llkdsysfs_pressure_show(struct device *dev,
  * dev_attr_<name> here...
  * The name of the 'show' callback function is llkdsysfs_pressure_show
  */
-static DEVICE_ATTR_RO(llkdsysfs_pressure);
+static DEVICE_ATTR_RO(SYSFS_FILE3);	/* it's show callback is above.. */
 
 /*------------------ sysfs file 2 (RO) -------------------------------------*/
 /* show PAGE_OFFSET value: sysfs entry point for the 'show' (read) callback */
@@ -142,7 +141,7 @@ static ssize_t llkdsysfs_pgoff_show(struct device *dev,
  * dev_attr_<name> here...
  * The name of the 'show' callback function is llkdsysfs_pgoff_show
  */
-static DEVICE_ATTR_RO(llkdsysfs_pgoff);	/* it's show callback is above.. */
+static DEVICE_ATTR_RO(SYSFS_FILE2);	/* it's show callback is above.. */
 
 /*------------------ sysfs file 1 (RW) -------------------------------------*/
 #define DEBUG_LEVEL_MIN     0
@@ -261,14 +260,14 @@ static int __init sysfs_simple_intf_init(void)
 	    /*
 	     * A potentially confusing aspect: as this is the first time, we
 	     * explain it via this comment:
-	     * The &dev_attr_SYSFS_FILE1 above (2nd param to the
+	     * The &dev_attr_SYSFS_FILE1 structure seen above (2nd param to the
 	     * device_create_file() API), is actually *instantiated* via this
 	     * declaration above:
 	     *  static DEVICE_ATTR_RW(SYSFS_FILE1);
-	     * This DEVICE_ATTR{_RW|RO|WO}() macro instantiates a
+	     * The DEVICE_ATTR_{RW|RO|WO}() macro instantiates a
 	     *  struct device_attribute dev_attr_<name>    data structure!
-	     * ... and hence we automatically get the rd/wr callbacks registered.
-	     * (IOW, the DEVICE_ATTR_XX(name) macro becomes a
+	     * ... and hence we automatically get the read/write callbacks
+	     * registered. (IOW, the DEVICE_ATTR_XX(name) macro becomes a
 	     *  struct device_attribute dev_attr_name data structure!)
 	     */
 	if (stat) {
@@ -279,7 +278,8 @@ static int __init sysfs_simple_intf_init(void)
 		PLAT_NAME, __stringify(SYSFS_FILE1));
 
 	// 2. Create our second sysfile file : llkdsysfs_pgoff
-	stat = device_create_file(&sysfs_demo_platdev->dev, &dev_attr_llkdsysfs_pgoff);
+	stat = device_create_file(&sysfs_demo_platdev->dev, &dev_attr_SYSFS_FILE2);
+	//stat = device_create_file(&sysfs_demo_platdev->dev, &dev_attr_llkdsysfs_pgoff);
 	/* As explained above, the
 	 *  static DEVICE_ATTR_RO(llkdsysfs_pgoff);
 	 * declaration above actually *instantiates* this data structure
@@ -295,7 +295,7 @@ static int __init sysfs_simple_intf_init(void)
 
 	// 3. Create our third sysfile file : llkdsysfs_pressure
 	gpressure = 25;  // arbitrary 'pressure' value of 25 assigned here..
-	stat = device_create_file(&sysfs_demo_platdev->dev, &dev_attr_llkdsysfs_pressure);
+	stat = device_create_file(&sysfs_demo_platdev->dev, &dev_attr_SYSFS_FILE3);
 	/* As explained above, the
 	 *  static DEVICE_ATTR_RO(llkdsysfs_pressure);
 	 * declaration above actually *instantiates* this data structure
@@ -312,7 +312,7 @@ static int __init sysfs_simple_intf_init(void)
 	pr_info("initialized\n");
 	return 0;		/* success */
  out4:
-	device_remove_file(&sysfs_demo_platdev->dev, &dev_attr_llkdsysfs_pgoff);
+	device_remove_file(&sysfs_demo_platdev->dev, &dev_attr_SYSFS_FILE2);
  out3:
 	device_remove_file(&sysfs_demo_platdev->dev, &dev_attr_SYSFS_FILE1);
  out2:
@@ -324,8 +324,8 @@ static int __init sysfs_simple_intf_init(void)
 static void __exit sysfs_simple_intf_cleanup(void)
 {
 	/* Cleanup sysfs nodes */
-	device_remove_file(&sysfs_demo_platdev->dev, &dev_attr_llkdsysfs_pressure);
-	device_remove_file(&sysfs_demo_platdev->dev, &dev_attr_llkdsysfs_pgoff);
+	device_remove_file(&sysfs_demo_platdev->dev, &dev_attr_SYSFS_FILE3);
+	device_remove_file(&sysfs_demo_platdev->dev, &dev_attr_SYSFS_FILE2);
 	device_remove_file(&sysfs_demo_platdev->dev, &dev_attr_SYSFS_FILE1);
 
 	/* Unregister the (dummy) platform device */

@@ -27,8 +27,6 @@
 #include <linux/slab.h>
 #include "../../convenient.h"
 
-#define OURMODNAME   "miscdrv"
-
 MODULE_AUTHOR("Kaiwan N Billimoria");
 MODULE_DESCRIPTION("LKP-2 book:ch1/miscdrv: simple 'skeleton' misc char driver");
 MODULE_LICENSE("Dual MIT/GPL");
@@ -65,11 +63,11 @@ static int open_miscdrv(struct inode *inode, struct file *filp)
  * functionality! Here, we simply print out some info.
  * The POSIX standard requires that the read() and write() system calls return
  * the number of bytes read or written on success, 0 on EOF (for read) and -1 (-ve errno)
- * on failure; we simply return 'count', pretending that we 'always succeed'.
+ * on failure; here we simply return 'count', pretending that we 'always succeed'.
  */
 static ssize_t read_miscdrv(struct file *filp, char __user *ubuf, size_t count, loff_t *off)
 {
-	pr_info("to read %zd bytes\n", count);
+	pr_info("(pretending) to read %zd bytes\n", count);
 	return count;
 }
 
@@ -79,12 +77,12 @@ static ssize_t read_miscdrv(struct file *filp, char __user *ubuf, size_t count, 
  * functionality! Here, we simply print out some info.
  * The POSIX standard requires that the read() and write() system calls return
  * the number of bytes read or written on success, 0 on EOF (for read) and -1 (-ve errno)
- * on failure; we simply return 'count', pretending that we 'always succeed'.
+ * on failure; here we simply return 'count', pretending that we 'always succeed'.
  */
 static ssize_t write_miscdrv(struct file *filp, const char __user *ubuf,
 			     size_t count, loff_t *off)
 {
-	pr_info("to write %zd bytes\n", count);
+	pr_info("(pretending) to write %zd bytes\n", count);
 	return count;
 }
 
@@ -120,7 +118,7 @@ static struct miscdevice llkd_miscdev = {
 	.name = "llkd_miscdrv",	/* when misc_register() is invoked, the kernel
 				 * will auto-create device file as /dev/llkd_miscdrv ;
 				 * also populated within /sys/class/misc/ and /sys/devices/virtual/misc/ */
-	.mode = 0666,				/* ... dev node perms set as specified here */
+	.mode = 0666,			/* ... dev node perms set as specified here */
 	.fops = &llkd_misc_fops,	/* connect to this driver's 'functionality' */
 };
 
