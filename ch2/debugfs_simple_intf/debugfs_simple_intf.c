@@ -174,7 +174,7 @@ static int __init debugfs_simple_intf_init(void)
 	 * chance to perform a validity check on the value being written..
 	 */
 #define DBGFS_FILE2	"llkd_dbgfs_debug_level"
-#if LINUX_VERSION_CODE >= KERNEL_VERSION(5, 7, 0)  // ref commit 2b07021a94
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(5, 7, 0)  // ref commit 2b07021a940ce1
     debugfs_create_u32(DBGFS_FILE2, 0644, gparent, &debug_level);
 #else
     file2 = debugfs_create_u32(DBGFS_FILE2, 0644, gparent, &debug_level);
