@@ -57,8 +57,7 @@ number.rst ...`
 
 should read
 
-   `/* The 'magic' number for our driver; see Documentation/userspace-api/ioctl/ioctl-
-number.rst ...`
+   `/* The 'magic' number for our driver; see Documentation/userspace-api/ioctl/ioctl-number.rst ...`
 
 
 
