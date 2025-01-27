@@ -16,7 +16,7 @@ answers / solutions to some of them).
 	char val;
 	void __iomem *base = devm_ioremap_resource(dev, r);
 	[...]
-	val = ioread8(base+3);
+	val = ioread8(base+2);
 
     Can you suggest a fix?
 
