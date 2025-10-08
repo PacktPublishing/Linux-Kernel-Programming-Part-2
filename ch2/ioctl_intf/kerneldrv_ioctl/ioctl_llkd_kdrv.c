@@ -112,7 +112,9 @@ static int ioctl_intf_ioctl(struct inode *ino, struct file *filp, unsigned int c
 }
 
 static const struct file_operations ioctl_intf_fops = {
+#if LINUX_VERSION_CODE < KERNEL_VERSION(6, 0, 0) // commit 868941b
 	.llseek = no_llseek,
+#endif
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(2, 6, 36)
 	.unlocked_ioctl = ioctl_intf_ioctl,	// use the 'unlocked' version
 #else

@@ -25,6 +25,7 @@
 #include <linux/miscdevice.h>
 #include <linux/fs.h>		/* the fops, file data structures */
 #include <linux/slab.h>
+#include <linux/version.h>
 #include "../../convenient.h"
 
 MODULE_AUTHOR("Kaiwan N Billimoria");
@@ -54,7 +55,9 @@ static int open_miscdrv(struct inode *inode, struct file *filp)
 		file_path(filp, buf, PATH_MAX), filp->f_flags);
 
 	kfree(buf);
-	return nonseekable_open(inode, filp);
+	return nonseekable_open(inode, filp); /* Turns off the FMODE_LSEEK (and
+					       * 2 other) bits in filp->f_flags
+					       */
 }
 
 /*
@@ -110,7 +113,9 @@ static const struct file_operations llkd_misc_fops = {
 	.read = read_miscdrv,
 	.write = write_miscdrv,
 	.release = close_miscdrv,
+#if LINUX_VERSION_CODE < KERNEL_VERSION(6, 0, 0) // commit 868941b
 	.llseek = no_llseek,
+#endif
 };
 
 static struct miscdevice llkd_miscdev = {

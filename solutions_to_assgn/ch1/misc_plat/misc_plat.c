@@ -137,7 +137,9 @@ static const struct file_operations llkd_misc_fops = {
 	.open = open_miscdrv,
 	.read = read_miscdrv,
 	.write = write_miscdrv,
+#if LINUX_VERSION_CODE < KERNEL_VERSION(6, 0, 0) // commit 868941b
 	.llseek = no_llseek,	// dummy, we don't support lseek(2)
+#endif
 	.release = close_miscdrv,
 	/* As you learn more reg device drivers, you'll realize that the
 	 * ioctl() would be a very useful method here. As an exercise,
