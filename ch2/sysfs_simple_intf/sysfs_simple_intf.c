@@ -82,7 +82,7 @@ MODULE_VERSION("0.1");
 static DEFINE_MUTEX(mtx);
 
 static int debug_level;		/* 'off' (0) by default ... */
-static u32 gpressure;		/* our dummy 'pressure' value */
+static u32 gpressure;		/* our dummy 'pressure' value (unit: hpa) */
 
 static struct platform_device *sysfs_demo_platdev;	/* Device structure */
 
@@ -294,7 +294,9 @@ static int __init sysfs_simple_intf_init(void)
 		PLAT_NAME, __stringify(SYSFS_FILE2));
 
 	// 3. Create our third sysfile file : llkdsysfs_pressure
-	gpressure = 25;  // arbitrary 'pressure' value of 25 assigned here..
+	gpressure = 1013;  /* arbitrary 'pressure' value of 1013 hpa
+			    * (hecto Pascals) assigned here..
+			    */
 	stat = device_create_file(&sysfs_demo_platdev->dev, &dev_attr_SYSFS_FILE3);
 	/* As explained above, the
 	 *  static DEVICE_ATTR_RO(llkdsysfs_pressure);
