@@ -152,15 +152,27 @@
 #include <linux/sched.h>
 #include <linux/interrupt.h>
 
+/* 
+ * We use a compat wrapper macro such that it uses in_hardirq() on newer
+ * kernels and falls back to using in_irq() on older kernels. This avoids
+ * embedding preprocessor directives inside a continued macro body (which
+ * breaks the preprocessor)
+ */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(5,11,0)
+#define IN_HARDIRQ_CHECK()  in_hardirq()
+#else
+#define IN_HARDIRQ_CHECK()  in_irq()
+#endif
+
 #define PRINT_CTX() do {                                                      \
 	int PRINTCTX_SHOWHDR = 0;                                                 \
 	char intr = '.';                                                          \
 	if (!in_task()) {                                                         \
-		if (in_irq() && in_softirq())                                         \
-			intr = 'H'; /* hardirq occurred inside a softirq */               \
-		else if (in_irq())                                                    \
+		if (IN_HARDIRQ_CHECK() && in_serving_softirq())                       \
+			intr = 'H'; /* hardirq occurred */                                \
+		else if (IN_HARDIRQ_CHECK())                                          \
 			intr = 'h'; /* hardirq is running */                              \
-		else if (in_softirq())                                                \
+		else if (in_serving_softirq())                                        \
 			intr = 's';                                                       \
 	}                                                                         \
 	else                                                                      \
