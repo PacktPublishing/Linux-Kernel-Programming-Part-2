@@ -23,6 +23,7 @@
 #include <linux/kernel.h>
 #include <linux/delay.h>
 #include <linux/ktime.h>		// ktime_get_*() routines
+#include <linux/version.h>
 
 #define OURMODNAME   "delays_sleeps"
 
@@ -67,6 +68,22 @@ static int __init delays_sleeps_init(void)
 	DILLY_DALLY("msleep_interruptible(10)         ", msleep_interruptible(10));
 	/* ssleep() is a wrapper over msleep():  = msleep(ms*1000); */
 	DILLY_DALLY("ssleep(1)                        ", ssleep(1));
+
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(5, 8, 0)
+	/*
+	 * >= 5.8: Flexible sleep wrapper fsleep(): for any usec value 
+	 * 'fsleep() -  flexible sleep which autoselects the best mechanism'
+	 * Commit 82e11e4
+	 */
+	pr_info("\n3. Use the flexible sleep wrapper fsleep(usecs):\n");
+	DILLY_DALLY("fsleep() for          1 us        ", fsleep(1));
+	DILLY_DALLY("fsleep() for         10 us        ", fsleep(10));
+	DILLY_DALLY("fsleep() for       1000 us (1 ms) ", fsleep(1000));
+	DILLY_DALLY("fsleep() for      10000 us (10 ms)", fsleep(10*1000));
+	DILLY_DALLY("fsleep() for    100 ms            ", fsleep(100*1000));
+	DILLY_DALLY("fsleep() for   1000 ms (1 s)      ", fsleep(1000*1000));
+#endif
+	pr_info("%s: demo complete\n", OURMODNAME);
 
 	return 0;		/* success */
 }
