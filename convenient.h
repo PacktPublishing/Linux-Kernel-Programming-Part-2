@@ -265,9 +265,8 @@ void delay_sec(long);
  * (We deliberately do not inline this function; this way, we can see it's
  * entry within a kernel stack call trace).
  */
-void delay_sec(long val)
+noinline void delay_sec(long val)
 {
-	asm ("");    // force the compiler to not inline it!
 	if (in_task()) {
 		set_current_state(TASK_INTERRUPTIBLE);
 		if (-1 == val)
