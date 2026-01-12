@@ -158,6 +158,7 @@
  * embedding preprocessor directives inside a continued macro body (which
  * breaks the preprocessor)
  */
+#include <linux/version.h>
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(5,11,0)
 #define IN_HARDIRQ_CHECK()  in_hardirq()
 #else
