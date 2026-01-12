@@ -169,7 +169,7 @@
 	char intr = '.';                                                          \
 	if (!in_task()) {                                                         \
 		if (IN_HARDIRQ_CHECK() && in_serving_softirq())                       \
-			intr = 'H'; /* hardirq occurred */                                \
+			intr = 'H'; /* hardirq occurred inside a softirq  */                                \
 		else if (IN_HARDIRQ_CHECK())                                          \
 			intr = 'h'; /* hardirq is running */                              \
 		else if (in_serving_softirq())                                        \
