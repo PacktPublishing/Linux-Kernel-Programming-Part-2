@@ -61,16 +61,16 @@
 #undef USE_FTRACE_BUFFER
 
 #ifdef USE_FTRACE_BUFFER
-#define DBGPRINT(string, args...)                                       \
+#define DBGPRINT(string, args...)                          \
 	trace_printk(string, ##args)
 #else
-#define DBGPRINT(string, args...) do {                                  \
-	int USE_RATELIMITING = 1;                                           \
-	if (USE_RATELIMITING) {                                             \
-		pr_info_ratelimited(string, ##args);                            \
-	}                                                                   \
-	else                                                                \
-		pr_info(string, ##args);                                        \
+#define DBGPRINT(string, args...) do {                     \
+	int USE_RATELIMITING = 1;                          \
+	if (USE_RATELIMITING) {                            \
+		pr_info_ratelimited(string, ##args);       \
+	}                                                  \
+	else                                               \
+		pr_info(string, ##args);                   \
 } while (0)
 #endif
 #endif				/* #ifdef __KERNEL__ */
@@ -94,14 +94,14 @@
 
 #ifdef __KERNEL__
 #ifndef USE_FTRACE_BUFFER
-#define QPDS do {                                                       \
-	MSG("\n");                                                          \
-	dump_stack();                                                       \
+#define QPDS do {                 \
+	MSG("\n");                \
+	dump_stack();             \
 } while (0)
 #else
-#define QPDS do {                                                       \
-	MSG("\n");                                                          \
-	trace_dump_stack();                                                 \
+#define QPDS do {                 \
+	MSG("\n");                \
+	trace_dump_stack();       \
 } while (0)
 #endif
 #endif
@@ -313,18 +313,18 @@ make[2]: *** [scripts/Makefile.modpost:123: ...ds3231_i2c_drv/try/Module.symvers
 #if (BITS_PER_LONG == 64)
 #include <linux/jiffies.h>
 #include <linux/ktime.h>
-#define SHOW_DELTA(later, earlier)  do {    \
-if (time_after((unsigned long)later, (unsigned long)earlier)) { \
-	s64 delta_ns = ktime_to_ns(ktime_sub(later, earlier));      \
-	pr_info("delta: %lld ns", delta_ns);       \
-	if (delta_ns/1000 >= 1)                    \
-		pr_cont(" (~ %lld us", delta_ns/1000);   \
-	if (delta_ns/1000000 >= 1)                 \
-		pr_cont(" ~ %lld ms", delta_ns/1000000); \
-	if (delta_ns/1000 >= 1)                    \
-		pr_cont(")\n");                    \
-} else  \
-	pr_warn("SHOW_DELTA(): *invalid* earlier > later? (check order of params)\n");  \
+#define SHOW_DELTA(later, earlier)  do {                                               \
+if (time_after((unsigned long)later, (unsigned long)earlier)) {                        \
+	s64 delta_ns = ktime_to_ns(ktime_sub(later, earlier));                         \
+	pr_info("delta: %lld ns", delta_ns);                                           \
+	if (delta_ns/1000 >= 1)                                                        \
+		pr_cont(" (~ %lld us", delta_ns/1000);                                 \
+	if (delta_ns/1000000 >= 1)                                                     \
+		pr_cont(" ~ %lld ms", delta_ns/1000000);                               \
+	if (delta_ns/1000 >= 1)                                                        \
+		pr_cont(")\n");                                                        \
+} else                                                                                 \
+	pr_warn("SHOW_DELTA(): *invalid* earlier > later? (check order of params)\n"); \
 } while (0)
 #else   // 32-bit
 	/* ktime_sub() not supported on 32-bit */
