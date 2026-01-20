@@ -165,21 +165,21 @@
 #define IN_HARDIRQ_CHECK()  in_irq()
 #endif
 
-#define PRINT_CTX() do {                                                      \
-	int PRINTCTX_SHOWHDR = 0;                                                 \
-	char intr = '.';                                                          \
-	if (!in_task()) {                                                         \
-		if (IN_HARDIRQ_CHECK() && in_serving_softirq())                       \
-			intr = 'H'; /* hardirq occurred inside a softirq  */                                \
-		else if (IN_HARDIRQ_CHECK())                                          \
-			intr = 'h'; /* hardirq is running */                              \
-		else if (in_serving_softirq())                                        \
-			intr = 's';                                                       \
-	}                                                                         \
-	else                                                                      \
-		intr = '.';                                                           \
-										                                      \
-	if (PRINTCTX_SHOWHDR == 1)                                                \
+#define PRINT_CTX() do {                                                             \
+	int PRINTCTX_SHOWHDR = 0;                                                    \
+	char intr = '.';                                                             \
+	if (!in_task()) {                                                            \
+		if (IN_HARDIRQ_CHECK() && in_serving_softirq())                      \
+			intr = 'H'; /* hardirq occurred inside a softirq  */         \
+		else if (IN_HARDIRQ_CHECK())                                         \
+			intr = 'h'; /* hardirq is running */                         \
+		else if (in_serving_softirq())                                       \
+			intr = 's';                                                  \
+	}                                                                            \
+	else                                                                         \
+		intr = '.';                                                          \
+									             \
+	if (PRINTCTX_SHOWHDR == 1)                                                   \
 		pr_debug("CPU)  task_name:PID  | irqs,need-resched,hard/softirq,preempt-depth  /* func_name() */\n"); \
 	pr_debug(                                                                    \
 	"%03d) %c%s%c:%d   |  "                                                      \
@@ -209,11 +209,11 @@
  * Here, we just trivially emit a noisy [trace_]printk() to "warn" the dev/user.
  */
 #ifdef __KERNEL__
-#define assert(expr) do {                                                \
-if (!(expr)) {                                                           \
+#define assert(expr) do {                                                    \
+if (!(expr)) {                                                               \
 	pr_warn("********** Assertion [%s] failed! : %s:%s:%d **********\n", \
 	#expr, __FILE__, __func__, __LINE__);                                \
-}                                                                        \
+}                                                                            \
 } while (0)
 #endif
 
@@ -236,20 +236,20 @@ static inline void beep(int what)
  * @val        : ASCII value to print
  * @loop_count : times to loop around
  */
-#define DELAY_LOOP(val, loop_count)                                        \
-{                                                                          \
-	int c = 0, m;                                                          \
-	unsigned int for_index, inner_index, x;                                \
-																			\
-	for (for_index = 0; for_index < loop_count; for_index++) {             \
-		beep((val));                                                       \
-		c++;                                                               \
-		for (inner_index = 0; inner_index < HZ; inner_index++) {           \
-			for (m = 0; m < 50; m++);                                      \
-			x = inner_index / 2;                                           \
-		}                                                                  \
-	}                                                                      \
-	/*printf("c=%d\n",c);*/                                                \
+#define DELAY_LOOP(val, loop_count)                                       \
+{                                                                         \
+	int c = 0, m;                                                     \
+	unsigned int for_index, inner_index, x;                           \
+									  \										\
+	for (for_index = 0; for_index < loop_count; for_index++) {        \
+		beep((val));                                              \
+		c++;                                                      \
+		for (inner_index = 0; inner_index < HZ; inner_index++) {  \
+			for (m = 0; m < 50; m++);                         \
+			x = inner_index / 2;                              \
+		}                                                         \
+	}                                                                 \
+	/*printf("c=%d\n",c);*/                                           \
 }
 /*------------------------------------------------------------------------*/
 
