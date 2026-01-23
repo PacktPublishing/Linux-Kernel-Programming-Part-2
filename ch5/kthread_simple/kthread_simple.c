@@ -11,7 +11,7 @@
  * From: Ch 5 : Timers, kernel threads and more
  ****************************************************************
  * Brief Description:
- * A simple LKM to demo delays and sleeps in the kernel.
+ * A simple LKM to demo creating and running a kthread.
  *
  * For details, please refer the book, Ch 5.
  */
@@ -90,9 +90,9 @@ static int kthread_simple_init(void)
 		return ret;
 	}
 	get_task_struct(gkthrd_ts); /* increment the kthread task structure's
-				      * reference count, marking it as being
-				      * in use
-				      */
+				     * reference count, marking it as being
+				     * in use
+				     */
 
 	pr_info("Initialized, kernel thread task ptr is 0x%pK (actual=0x%px)\n"
 	"See the new kernel thread 'llkd/%s' with ps (and kill it with SIGINT or SIGQUIT)\n",
