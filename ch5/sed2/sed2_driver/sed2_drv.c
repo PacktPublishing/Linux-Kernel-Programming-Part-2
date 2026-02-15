@@ -414,8 +414,12 @@ static const struct file_operations llkd_misc_fops = {
 static struct miscdevice llkd_miscdev = {
 	.minor = MISC_DYNAMIC_MINOR,	/* kernel dynamically assigns a free minor# */
 	.name = DRVNAME,	/* when misc_register() is invoked, the kernel
-				 * will auto-create device file as /dev/llkd_miscdrv_rdwr;
-				 *  also populated within /sys/class/misc/ and /sys/devices/virtual/misc/ */
+				 * will auto-create device file as /dev/<DRVNAME>, and also
+				 * populate the sysfs entries for this device; the device
+				 * file is created with the major # 10 (for misc) and the minor
+				 * # assigned by the kernel.
+				 * Also populated within /sys/class/misc/ and /sys/devices/virtual/misc/
+				 */
 	.mode = 0666,		/* ... dev node perms set as specified here */
 	.fops = &llkd_misc_fops,	/* connect to this driver's 'functionality' */
 };
