@@ -1,5 +1,5 @@
 /*
- * ch5/sed2/sed_common.h
+ * ch5/sed3/sed_common.h
  ***************************************************************
  * This program is part of the source code released for the book
  *  "Linux Kernel Programming - Part 2"
@@ -31,14 +31,15 @@ _IOR(type,nr,datatype)        ioctl command for reading data from the kernel/drv
 _IOW(type,nr,datatype)        ioctl command for writing data to the kernel/drv
 _IOWR(type,nr,datatype)       ioctl command for read/write transfers
 */
-/* our ioctl (IOC) encrypt message command */
-#define IOCTL_LLKD_SED_IOC_ENCRYPT_MSG		_IOR(IOCTL_LLKD_SED_MAGIC, 1, int)
-/* our ioctl (IOC) retrieve message command */
-#define IOCTL_LLKD_SED_IOC_RETRIEVE_MSG		_IOR(IOCTL_LLKD_SED_MAGIC, 2, int)
-/* our ioctl (IOC) decrypt message command */
-#define IOCTL_LLKD_SED_IOC_DECRYPT_MSG		_IOR(IOCTL_LLKD_SED_MAGIC, 3, int)
-/* our ioctl (IOC) destroy message command */
-#define IOCTL_LLKD_SED_IOC_DESTROY_MSG		_IOR(IOCTL_LLKD_SED_MAGIC, 4, int)
+
+/* our ioctl (IOC) encrypt message command: user -> kernel (struct sed_ds *) */
+#define IOCTL_LLKD_SED_IOC_ENCRYPT_MSG		_IOW(IOCTL_LLKD_SED_MAGIC, 1, struct sed_ds)
+/* our ioctl (IOC) retrieve message command: kernel -> user (struct sed_ds *) */
+#define IOCTL_LLKD_SED_IOC_RETRIEVE_MSG		_IOR(IOCTL_LLKD_SED_MAGIC, 2, struct sed_ds)
+/* our ioctl (IOC) decrypt message command: user <-> kernel (in/out struct sed_ds *) */
+#define IOCTL_LLKD_SED_IOC_DECRYPT_MSG		_IOWR(IOCTL_LLKD_SED_MAGIC, 3, struct sed_ds)
+/* our ioctl (IOC) destroy message command: no argument */
+#define IOCTL_LLKD_SED_IOC_DESTROY_MSG		_IO(IOCTL_LLKD_SED_MAGIC, 4)
 
 /* Metadata structure for the 'payload' */
 #define MAX_DATA	512
