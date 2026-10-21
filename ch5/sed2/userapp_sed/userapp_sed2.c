@@ -192,7 +192,7 @@ static void menu_drive(int fd, char *buf, char *prg)
 
 	printf
 	    ("---< Welcome to the SED (Simple Encrypt Decrypt) v2 User mode app >---\n"
-	     "((c) 'Learn Linux Kernel Development', Kaiwan N Billimoria, Packt)\n\n");
+	     "((c) 'Learn Kernel Programming - Part 2', Kaiwan N Billimoria, Packt)\n\n");
 
 	/* Check, is the driver already holding a message packet? */
 	ret = retrieve_msg(fd, &len, msg, prg);
@@ -294,7 +294,7 @@ static void menu_drive(int fd, char *buf, char *prg)
 			break;
 		case 5:	/* View kernel log (dmesg) */
 			printf("---> View kernel log : dmesg(1) <---\n");
-			if (system("dmesg") < 0)
+			if (system("sudo dmesg") < 0)
 				fprintf(stderr,
 					"%s: *** system(3) on dmesg(1) failed ***\n",
 					prg);

@@ -295,8 +295,10 @@ static int __init miscdrv_rdwr_init(void)
 	 * is unloaded from memory
 	 */
 	ctx = devm_kzalloc(dev, sizeof(struct drv_ctx), GFP_KERNEL);
-	if (unlikely(!ctx))
+	if (unlikely(!ctx)) {
+		misc_deregister(&llkd_miscdev);
 		return -ENOMEM;
+	}
 
 	ctx->dev = dev;
 	/* Initialize the "secret" value :-) */

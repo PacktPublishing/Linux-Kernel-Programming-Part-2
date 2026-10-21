@@ -18,6 +18,7 @@
 
 #include <asm/param.h>		/* HZ */
 #include <linux/sched.h>
+#include <linux/version.h>
 
 #ifdef __KERNEL__
 #include <linux/ratelimit.h>
