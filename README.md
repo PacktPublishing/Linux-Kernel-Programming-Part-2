@@ -59,6 +59,7 @@ should read
 
    `/* The 'magic' number for our driver; see Documentation/userspace-api/ioctl/ioctl-number.rst ...`
 
+- Pages 266 to 270: wrt the demo module named kthread_simple; have made a few fixes in the code, pl pull the latest ver; fixes a refcount issue and a possible race (along with minor cleanup)...
 
 
 ### Related products
