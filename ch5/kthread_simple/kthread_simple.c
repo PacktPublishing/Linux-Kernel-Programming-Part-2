@@ -24,14 +24,13 @@
 #include <linux/sched/signal.h> // signal_pending()
 #include <linux/signal.h>       // allow_signal()
 #include <linux/kthread.h>
-#include <asm/atomic.h>
+//#include <asm/atomic.h>
 #include "../../convenient.h"
 
-#define OURMODNAME	"kthread_simple"
 #define KTHREAD_NAME	"kt_simple"
 
 MODULE_AUTHOR("Kaiwan N Billimoria");
-MODULE_DESCRIPTION("a simple LKM to demo delays and sleeps in the kernel");
+MODULE_DESCRIPTION("a simple LKM to demo creating and running a kthread");
 MODULE_LICENSE("Dual MIT/GPL");	// or whatever
 MODULE_VERSION("0.1");
 
@@ -46,12 +45,13 @@ static int simple_kthread(void *arg)
 
 	/*
 	 * By default all signals are masked for the kthread; allow a couple
-	 * so that we can 'manually' kill it
+	 * so that we can 'manually' kill it. In general, Don't do this in
+	 * production.
 	 */
 	allow_signal(SIGINT);
 	allow_signal(SIGQUIT);
 
-	while(!kthread_should_stop()) {
+	while (!kthread_should_stop()) {
 		pr_info("FYI, I, kernel thread PID %d, am going to sleep now...\n",
 		    current->pid);
 		set_current_state(TASK_INTERRUPTIBLE);
@@ -71,9 +71,9 @@ static int simple_kthread(void *arg)
 	return 0;
 }
 
-static int kthread_simple_init(void)
+static int __init kthread_simple_init(void)
 {
-	int ret=0;
+	int ret = 0;
 
 	pr_info("Lets now create a kernel thread...\n");
 
@@ -101,7 +101,7 @@ static int kthread_simple_init(void)
 	return 0;		// success
 }
 
-static void kthread_simple_exit(void)
+static void __exit kthread_simple_exit(void)
 {
 	kthread_stop(gkthrd_ts);
 			/* waits for our kthread to terminate; it also
