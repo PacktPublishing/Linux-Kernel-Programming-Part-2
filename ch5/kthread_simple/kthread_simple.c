@@ -51,19 +51,19 @@ static int simple_kthread(void *arg)
 	allow_signal(SIGINT);
 	allow_signal(SIGQUIT);
 
-	while (!kthread_should_stop()) {
+	while (1) {
 		pr_info("FYI, I, kernel thread PID %d, am going to sleep now...\n",
 		    current->pid);
 		set_current_state(TASK_INTERRUPTIBLE);
+		if (kthread_should_stop() || signal_pending(current))
+			break;
 		schedule();	// yield the processor, go to sleep...
 		/* Aaaaaand we're back! Here, it's typically due to either the
 		 * SIGINT or SIGQUIT signal hitting us, or due to the rmmod (or shutdown)
 		 */
-		if (signal_pending(current))
-			break;
 	}
 
-	// We've been (rudely) interrupted by a signal...
+	// We've been (rudely) interrupted by a signal OR rmmod'd
 	set_current_state(TASK_RUNNING);
 	pr_info("FYI, I, kernel thread PID %d, have been rudely awoken; I shall"
 			" now exit... Good day Sir!\n", current->pid);
