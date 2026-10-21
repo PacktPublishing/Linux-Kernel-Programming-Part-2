@@ -103,11 +103,8 @@ static int __init kthread_simple_init(void)
 
 static void __exit kthread_simple_exit(void)
 {
-	kthread_stop(gkthrd_ts);
-			/* waits for our kthread to terminate; it also
-			 * internally invokes the put_task_struct() to
-			 * decrement task's reference count
-			 */
+	kthread_stop(gkthrd_ts); /* waits for our kthread to terminate */
+	put_task_struct(gkthrd_ts); // Fix: must explicitly decrement refcount
 	pr_info("kthread stopped, and LKM removed.\n");
 }
 
